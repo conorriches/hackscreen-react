@@ -1,0 +1,51 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding:0;
+}
+
+body {
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 4vw;
+  margin:0;
+  padding:0;
+}
+
+#root {
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+
+h1 {
+  font-size: 8vw;
+}
+
+h2 {
+  font-size: 6vw;
+}
+
+.fade {
+  transition: opacity 1s;
+  opacity: 0;
+  height:0px;
+}
+
+.fade-exited {
+  opacity: 1;
+  pointer-events: none;
+  height:100%;
+}
+
+
+.Welcome{
+  color:white;
+}
+
+.WiFi{
+  color:green;
+}
