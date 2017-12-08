@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web");
+
 html,
 body {
-  width: 100%;
-  height: 100%;
   margin: 0;
-  padding:0;
+  padding: 0;
+  font-family: "Titillium Web", sans-serif;
+  height: 100%;
 }
 
 body {
@@ -11,14 +13,23 @@ body {
   background: black;
   color: white;
   font-size: 4vw;
-  margin:0;
-  padding:0;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
 }
 
 #root {
   height: 100%;
-  margin:0;
-  padding:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
 }
 
 h1 {
@@ -29,23 +40,143 @@ h2 {
   font-size: 6vw;
 }
 
+#App {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+}
+
 .fade {
-  transition: opacity 1s;
+  transition: opacity 2s, transform 4s;
   opacity: 0;
-  height:0px;
+  height: 0px;
+  transform: rotateY(10deg);
 }
 
 .fade-exited {
   opacity: 1;
   pointer-events: none;
-  height:100%;
+  height: 100%;
+  transform: rotateY(0deg);
 }
 
 
-.Welcome{
-  color:white;
+.hidden{
+  opacity:0;
+  transition: opacity 1s; 
 }
 
-.WiFi{
-  color:green;
+.status {
+  width: 300px;
+  background: black;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 3vw;
+}
+
+.status.danger {
+  background: red;
+}
+
+.notification {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 10%;
+  color: white;
+  font-size: 5vw;
+  border-top:3px solid white;
+  border-bottom:3px solid white;
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+small {
+  font-size: 2vw;
+}
+
+.Welcome {
+  background: #6441a5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #2a0845,
+    #6441a5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #2a0845,
+    #6441a5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.WiFi {
+  color: black;
+  background: #833ab4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #fcb045,
+    #fd1d1d,
+    #833ab4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fcb045,
+    #fd1d1d,
+    #833ab4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.Food {
+  background: #fe8c00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f83600,
+    #fe8c00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f83600,
+    #fe8c00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.Food .strong {
+  color: #2a0845;
+}
+
+.Music {
+  background: #870000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #190a05,
+    #870000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #190a05,
+    #870000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.MMMM {
+  background: #efefbb; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #d4d3dd,
+    #efefbb
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #d4d3dd,
+    #efefbb
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: darkblue;
 }
