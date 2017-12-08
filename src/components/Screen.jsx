@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../App.css";
 import Transition from "react-transition-group/Transition";
 
 class Screen extends Component {

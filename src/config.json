@@ -1,3 +1,12 @@
 {
-  "order": [{ "name": "Welcome", "time": 2 }, { "name": "WiFi", "time": 4 }]
+  "MQTT":{
+    "address" : "http://172.16.0.5"
+  },
+  "order": [
+    { "name": "Welcome", "time": 6 },
+    { "name": "MMMM", "time": 6 },
+    { "name": "Music", "time": 6 },
+    { "name": "Food", "time": 6 },
+    { "name": "WiFi", "time": 6 }
+  ]
 }

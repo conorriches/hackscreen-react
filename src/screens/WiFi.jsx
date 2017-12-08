@@ -5,6 +5,8 @@ class WiFi extends Component {
     return (
       <div>
         <h1>WiFi</h1>
+        <h3>SSID: Hackspace</h3>
+        <h3>Password: T3h4x0rZ</h3>
       </div>
     );
   }
