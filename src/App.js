@@ -1,27 +1,22 @@
 import React, { Component } from "react";
-import { Connector, subscribe } from "mqtt-react";
-import classnames from 'classnames';
+import classnames from "classnames";
+import openSocket from "socket.io-client";
 
 //Our components
 import Announcement from "./components/Announcement";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
-import Screen from "./components/Screen";
-
-//Our screens
-import Welcome from "./screens/Welcome";
-import WiFi from "./screens/WiFi";
-import Food from "./screens/Food";
-import Music from "./screens/Music";
-import MMMM from "./screens/MMMM";
+import * as Screens from "./screens";
 
 //Our global config object which specifies order and timings
 import Config from "./config.json";
 
+const socket = openSocket(`${Config.socket.server}:${Config.socket.port}`);
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { index: 0, slide: "", hide: 0 };
+    this.state = { index: 0, slide: "", hide: 0, status: "Door Closed" };
   }
 
   componentDidMount() {
@@ -44,6 +39,12 @@ class App extends Component {
       let slideName = thisSlide.name || "";
       let slideTime = thisSlide.time * 1000 || 10000;
 
+      socket.on("DATA", data => {
+        console.log(data);
+        this.setState({ data: data });
+      });
+      socket.emit("SLIDE_CHANGED", slideName);
+
       this.setState({
         slide: thisSlide.name,
         index: this.state.index,
@@ -57,34 +58,30 @@ class App extends Component {
     }, 1000);
   }
 
-  render() {
-    return (
-      <Connector mqttProps={Config.MQTT.address}>
-        <div id="App" className={classnames({"hidden": this.state.hide})}>
-          <Screen active={this.state.slide}>
-            <Welcome />
-          </Screen>
-          <Screen active={this.state.slide}>
-            <WiFi />
-          </Screen>
-          <Screen active={this.state.slide}>
-            <Food />
-          </Screen>
-          <Screen active={this.state.slide}>
-            <Music />
-          </Screen>
-          <Screen active={this.state.slide}>
-            <MMMM />
-          </Screen>
+  handleData(data) {
+    let result = JSON.parse(data);
+    console.log(result);
+  }
 
-          {subscribe({ topic: "@near/demo" })(
-            <div>
-              <Status />
-              <Notification />
-            </div>
-          )}
+  render() {
+    const Component = Screens[this.state.slide];
+
+    return (
+      <div id="App">
+        <div
+          className={classnames("fs", this.state.slide, {
+            hidden: this.state.hide
+          })}
+        >
+          {Component ? <Component /> : <div>Loading...</div>}
         </div>
-      </Connector>
+        <Announcement>
+          {this.state.status && <Status text={this.state.status} />}
+          {this.state.notification && (
+            <Notification text={this.state.notification} />
+          )}
+        </Announcement>
+      </div>
     );
   }
 }
