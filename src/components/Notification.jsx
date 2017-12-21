@@ -4,7 +4,7 @@ class Notification extends Component {
   render() {
     return (
       <div className="notification">
-        cone has entered
+        {this.props.text}
       </div>
     );
   }

@@ -9,9 +9,7 @@ class Status extends Component {
   render() {
     return (
       <div className="status">
-        <div className="door">
-          Door open
-        </div>
+        <div className="door">{this.props.text}</div>
       </div>
     );
   }

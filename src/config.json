@@ -1,12 +1,13 @@
 {
-  "MQTT":{
-    "address" : "http://172.16.0.5"
+  "socket":{
+    "server" : "localhost",
+    "port": 8000
   },
   "order": [
-    { "name": "Welcome", "time": 6 },
     { "name": "MMMM", "time": 6 },
-    { "name": "Music", "time": 6 },
+    { "name": "Parrot", "time": 2 },
     { "name": "Food", "time": 6 },
+    { "name": "Welcome", "time": 6 },
     { "name": "WiFi", "time": 6 }
   ]
 }

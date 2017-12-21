@@ -18,10 +18,27 @@ body {
 .App {
   height: 100%;
   width: 100%;
+  color: white;
 }
 
 #root {
   height: 100%;
+}
+
+.fs {
+  height: 100%;
+  transition: opacity 1s;
+  transition-timing-function: ease-in-out;
+  animation: 4s ease-in-out 0s alternate none infinite animate;
+}
+
+@keyframes animate {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 150%;
+  }
 }
 
 h1,
@@ -55,7 +72,7 @@ h2 {
   transition: opacity 2s, transform 4s;
   opacity: 0;
   height: 0px;
-  transform: rotateY(10deg);
+  transform: rotateY(15deg);
 }
 
 .fade-exited {
@@ -65,23 +82,62 @@ h2 {
   transform: rotateY(0deg);
 }
 
-
-.hidden{
-  opacity:0;
-  transition: opacity 1s; 
+.hidden {
+  opacity: 0;
 }
 
 .status {
   width: 300px;
   background: black;
   position: absolute;
-  right: 30px;
-  bottom: 30px;
+  right: 0px;
+  bottom: 0px;
   font-size: 3vw;
 }
 
-.status.danger {
+.status div {
+  display: inline-block;
+}
+
+.status .door.danger {
   background: red;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  width: 60%;
+  display:inline-block;
+  color:white;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(#000, 0.9);
+  padding-left: 100%;
+}
+
+.ticker {
+  display: inline-block;
+  height: 4rem;
+  line-height: 4rem;
+  white-space: nowrap;
+  padding-right: 100%;
+}
+
+.ticker-item {
+  display: inline-block;
+
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: white;
 }
 
 .notification {
@@ -91,12 +147,19 @@ h2 {
   bottom: 10%;
   color: white;
   font-size: 5vw;
-  border-top:3px solid white;
-  border-bottom:3px solid white;
-  background: #232526;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 small {
@@ -179,4 +242,9 @@ small {
     #efefbb
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: darkblue;
+}
+
+.Parrot {
+  background: white;
+  color: black;
 }
