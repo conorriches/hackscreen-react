@@ -9,6 +9,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
+    "react-sound": "^0.10.0",
     "react-transition-group": "^2.2.1",
     "react-websocket": "^2.0.0",
     "serve": "^6.4.1",

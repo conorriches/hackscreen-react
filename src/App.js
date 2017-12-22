@@ -6,21 +6,80 @@ import openSocket from "socket.io-client";
 import Announcement from "./components/Announcement";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
+import Logo from "./components/Logo";
 import * as Screens from "./screens";
+import Sound from "react-sound";
 
 //Our global config object which specifies order and timings
 import Config from "./config.json";
+import { clearTimeout } from "timers";
 
 const socket = openSocket(`${Config.socket.server}:${Config.socket.port}`);
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { index: 0, slide: "", hide: 0, status: "Door Closed" };
+    this.state = {
+      index: 0,
+      slide: "",
+      hide: 0,
+      doorOpen: true,
+      lastEntered: [],
+      notification: null,
+      doorbell: 0,
+      audio: {
+        doorbell: 0,
+        entry: 0
+      }
+    };
+
+    socket.on("DOOR_STATE", data => {
+      this.setState({ doorOpen: data === "opened" });
+      this.setState({ doorbell: 0 });
+    });
+
+    socket.on("USER_ENTERED", data => {
+      this.setNotification("🔑 " + data + " has entered!");
+
+      //If we hav already seen the user, remove their last position
+      const index = this.state.lastEntered.indexOf(data);
+      console.log(index);
+      if (index !== -1)
+        this.setState({
+          lastEntered: this.state.lastEntered.filter(item => {
+            return item !== data;
+          })
+        });
+
+      this.setState({ lastEntered: this.state.lastEntered.slice(-5).concat(data) });
+      this.setState({ audio: { entry: 1 } });
+    });
+
+    socket.on("DOORBELL", data => {
+      this.setNotification("🔔 DOORBELL AT IRON DOORS 🔔");
+      this.setState({ doorbell: 1, audio: { doorbell: 1 } });
+    });
+  }
+
+  setNotification(data) {
+    //show the notification
+    this.setState({ notification: data });
+
+    //set up new timeout
+    setTimeout(() => {
+      this.setState({ notification: null });
+    }, Config.notification.delay);
   }
 
   componentDidMount() {
     this.show();
+    this.setNotification("Hiiiii");
+  }
+
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   getNextIndex() {
@@ -39,10 +98,6 @@ class App extends Component {
       let slideName = thisSlide.name || "";
       let slideTime = thisSlide.time * 1000 || 10000;
 
-      socket.on("DATA", data => {
-        console.log(data);
-        this.setState({ data: data });
-      });
       socket.emit("SLIDE_CHANGED", slideName);
 
       this.setState({
@@ -68,19 +123,50 @@ class App extends Component {
 
     return (
       <div id="App">
+        <Sound
+          url="/audio/doorbell.ogg"
+          playStatus={
+            this.state.audio.doorbell
+              ? Sound.status.PLAYING
+              : Sound.status.STOPPED
+          }
+          playFromPosition={0}
+          onFinishedPlaying={() => {
+            this.state.audio.doorbell = 0;
+          }}
+        />
+
+        <Sound
+          url="/audio/entered.ogg"
+          playStatus={
+            this.state.audio.entry ? Sound.status.PLAYING : Sound.status.STOPPED
+          }
+          playFromPosition={0}
+          onFinishedPlaying={() => {
+            this.state.audio.entry = 0;
+          }}
+        />
+
         <div
           className={classnames("fs", this.state.slide, {
             hidden: this.state.hide
           })}
         >
-          {Component ? <Component /> : <div>Loading...</div>}
-        </div>
-        <Announcement>
-          {this.state.status && <Status text={this.state.status} />}
-          {this.state.notification && (
-            <Notification text={this.state.notification} />
+          {Component ? (
+            <Component parentState={this.state} />
+          ) : (
+            <div>Loading...</div>
           )}
-        </Announcement>
+        </div>
+
+        <div className="footer">
+          <Status doorbell={this.state.doorbell} state={this.state.doorOpen} />
+          <Logo />
+        </div>
+
+        <Notification
+          text={this.state.notification || Config.notification.bye}
+        />
       </div>
     );
   }
