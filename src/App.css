@@ -69,79 +69,103 @@ h2 {
 }
 
 .fade {
-  transition: opacity 2s, transform 4s;
+  transition: opacity 2s;
   opacity: 0;
   height: 0px;
-  transform: rotateY(15deg);
 }
 
 .fade-exited {
   opacity: 1;
   pointer-events: none;
   height: 100%;
-  transform: rotateY(0deg);
 }
 
 .hidden {
   opacity: 0;
 }
 
-.status {
-  width: 300px;
-  background: black;
+
+.footer{
+  width: 100%;
+  height: 100px;
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  bottom: 0;
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+25,0.65+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+.status {
+  position: absolute;
+  left: 0px;
+  bottom: 30px;
   font-size: 3vw;
 }
 
 .status div {
   display: inline-block;
+  padding:10px;
+  margin-left:30px;
 }
 
+.status .door {
+  background: black;
+}
 .status .door.danger {
-  background: red;
+  animation: doorAlertAnim 1s infinite; 
+  border:6px dashed yellow;
 }
 
-@keyframes ticker {
-  0% {
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
+@keyframes doorAlertAnim {
+  0%, 40% {
+    background: red;
+  }
+  50%, 100% {
+    background: black;
+  }
+}
+
+
+.status .doorbell{
+  background:yellow;
+  border:6px dashed red;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
   }
 
-  100% {
-    transform: translate3d(-100%, 0, 0);
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
-.ticker-wrap {
-  width: 60%;
-  display:inline-block;
-  color:white;
-  overflow: hidden;
-  height: 4rem;
-  background-color: rgba(#000, 0.9);
-  padding-left: 100%;
-}
-
-.ticker {
-  display: inline-block;
-  height: 4rem;
-  line-height: 4rem;
-  white-space: nowrap;
-  padding-right: 100%;
-}
-
-.ticker-item {
-  display: inline-block;
-
-  padding: 0 2rem;
-  font-size: 2rem;
-  color: white;
+.logo{
+  position:absolute;
+  right: 0px;
+  bottom:0px;
+  width:280px;
+  padding:10px;
 }
 
 .notification {
+  transition: opacity 2s;
   position: absolute;
+  opacity:0;
   left: 0;
   width: 100%;
   bottom: 10%;
@@ -149,17 +173,12 @@ h2 {
   font-size: 5vw;
   border-top: 3px solid white;
   border-bottom: 3px solid white;
-  background: #232526; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #414345,
-    #232526
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #414345,
-    #232526
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000; /* fallback for old browsers */
+  
+}
+
+.notification.active{
+  opacity: 1;
 }
 
 small {

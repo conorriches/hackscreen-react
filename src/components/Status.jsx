@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Transition from "react-transition-group/Transition";
+import classnames from "classnames";
 
 class Status extends Component {
   constructor(props) {
@@ -9,7 +9,12 @@ class Status extends Component {
   render() {
     return (
       <div className="status">
-        <div className="door">{this.props.text}</div>
+        {this.props.doorbell ? (
+          <div className="doorbell">🔔</div>
+        ) : <div/>}
+        <div className={classnames("door", this.props.state ? "danger" : "")}>
+          {this.props.state ? "DOOR OPEN ⚠️" : " DOOR CLOSED👌"}
+        </div>
       </div>
     );
   }
