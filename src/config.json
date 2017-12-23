@@ -1,14 +1,17 @@
 {
-  "mqtt":{
+  "mqttspace":{
     "server": "mqtt://172.16.0.5"
+  },
+  "mqtt":{
+    "server": "mqtt://test.mosquitto.org"
   },
   "socket":{
     "server" : "localhost",
     "port": 8000
   },
   "order": [
-    { "name": "Recent", "time": 60 },
-    { "name": "MMMM", "time": 6 },
+    { "name": "Recent", "time": 1 },
+    { "name": "MMMM", "time": 600 },
     { "name": "Parrot", "time": 2 },
     { "name": "Food", "time": 6 },
     { "name": "Welcome", "time": 6 },

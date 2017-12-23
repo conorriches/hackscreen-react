@@ -7,6 +7,7 @@ import Announcement from "./components/Announcement";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
 import Logo from "./components/Logo";
+import EmergencyNotice from "./components/EmergencyNotice";
 import * as Screens from "./screens";
 import Sound from "react-sound";
 
@@ -27,15 +28,24 @@ class App extends Component {
       lastEntered: [],
       notification: null,
       doorbell: 0,
+      emergency: null,
       audio: {
         doorbell: 0,
-        entry: 0
+        entry: 0,
+        emergency: 0
       }
     };
 
     socket.on("DOOR_STATE", data => {
       this.setState({ doorOpen: data === "opened" });
       this.setState({ doorbell: 0 });
+    });
+
+    socket.on("MANUAL_OVERRIDE", data => {
+      this.setState({
+        emergency: "MANUAL OVERRIDE KEY WAS USED AT IRON DOORS.",
+        audio: { emergency: 0 }
+      });
     });
 
     socket.on("USER_ENTERED", data => {
@@ -51,7 +61,9 @@ class App extends Component {
           })
         });
 
-      this.setState({ lastEntered: this.state.lastEntered.slice(-5).concat(data) });
+      this.setState({
+        lastEntered: this.state.lastEntered.slice(-5).concat(data)
+      });
       this.setState({ audio: { entry: 1 } });
     });
 
@@ -147,17 +159,32 @@ class App extends Component {
           }}
         />
 
-        <div
-          className={classnames("fs", this.state.slide, {
-            hidden: this.state.hide
-          })}
-        >
-          {Component ? (
-            <Component parentState={this.state} />
-          ) : (
-            <div>Loading...</div>
-          )}
-        </div>
+        <Sound
+          url="/audio/alarm.mp3"
+          playStatus={
+            this.state.emergency && this.state.audio.emergency < 2
+              ? Sound.status.PLAYING
+              : Sound.status.STOPPED
+          }
+          playFromPosition={0}
+          onFinishedPlaying={() => {
+            this.state.audio.emergency += 1;
+          }}
+        />
+
+        <EmergencyNotice emergency={this.state.emergency}>
+          <div
+            className={classnames("fs", this.state.slide, {
+              hidden: this.state.hide
+            })}
+          >
+            {Component ? (
+              <Component parentState={this.state} />
+            ) : (
+              <div>Loading...</div>
+            )}
+          </div>
+        </EmergencyNotice>
 
         <div className="footer">
           <Status doorbell={this.state.doorbell} state={this.state.doorOpen} />
