@@ -7,6 +7,7 @@ import Announcement from "./components/Announcement";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
 import Logo from "./components/Logo";
+import Ticker from "./components/Ticker";
 import EmergencyNotice from "./components/EmergencyNotice";
 import * as Screens from "./screens";
 import Sound from "react-sound";
@@ -24,7 +25,7 @@ class App extends Component {
       index: 0,
       slide: "",
       hide: 0,
-      doorOpen: true,
+      doorOpen: false,
       lastEntered: [],
       notification: null,
       doorbell: 0,
@@ -44,25 +45,29 @@ class App extends Component {
     socket.on("MANUAL_OVERRIDE", data => {
       this.setState({
         emergency: "MANUAL OVERRIDE KEY WAS USED AT IRON DOORS.",
-        audio: { emergency: 0 }
+        audio: { emergency: 1 }
       });
     });
 
     socket.on("USER_ENTERED", data => {
       this.setNotification("🔑 " + data + " has entered!");
-
+      let d = new Date();
+      let n = d.toLocaleTimeString();
+      let userData = {
+        name: data,
+        time: n
+      }
       //If we hav already seen the user, remove their last position
-      const index = this.state.lastEntered.indexOf(data);
-      console.log(index);
-      if (index !== -1)
+      const count = this.state.lastEntered.filter((n) => {console.log(n);return n.name == data}).length;
+      if (count > 0)
         this.setState({
           lastEntered: this.state.lastEntered.filter(item => {
-            return item !== data;
+            return item.name !== data;
           })
         });
 
       this.setState({
-        lastEntered: this.state.lastEntered.slice(-5).concat(data)
+        lastEntered: this.state.lastEntered.slice(-5).concat(userData)
       });
       this.setState({ audio: { entry: 1 } });
     });
@@ -85,7 +90,6 @@ class App extends Component {
 
   componentDidMount() {
     this.show();
-    this.setNotification("Hiiiii");
   }
 
   componentWillUnmount() {
@@ -162,13 +166,13 @@ class App extends Component {
         <Sound
           url="/audio/alarm.mp3"
           playStatus={
-            this.state.emergency && this.state.audio.emergency < 2
+            this.state.audio.emergency
               ? Sound.status.PLAYING
               : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
-            this.state.audio.emergency += 1;
+            this.state.audio.emergency = 0;
           }}
         />
 
@@ -187,8 +191,30 @@ class App extends Component {
         </EmergencyNotice>
 
         <div className="footer">
-          <Status doorbell={this.state.doorbell} state={this.state.doorOpen} />
           <Logo />
+          <Status
+            className="doorbell"
+            condition={this.state.doorbell}
+            true="🙋🔔 SOMEONE AT DOOR"
+            false="🔔"
+          />
+          <Status
+            className="door"
+            condition={this.state.doorOpen}
+            true="⚠️ DOOR OPEN"
+            false="️️🔐"
+          />
+          <Ticker
+            items={[
+              {
+                "title": "Last Entered",
+                "value": this.state.lastEntered.slice().map((i)=> {
+                  return i.name + " (" + i.time + ") "
+                }).reverse()
+              },
+              { "title": "WiFi", "value": "To connect, select Hackspace  and enter password:T3h4x0rZ" }
+            ]}
+          />
         </div>
 
         <Notification

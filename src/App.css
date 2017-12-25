@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web|Rubik");
+@font-face {
+  font-family: metrolink;
+  src: url('fonts/PantographSans.ttf');
+}
 
 html,
 body {
@@ -29,7 +33,8 @@ body {
   height: 100%;
   transition: opacity 1s;
   transition-timing-function: ease-in-out;
-  animation: 4s ease-in-out 0s alternate none infinite animate;
+  animation: 2s ease-in-out 0s alternate none infinite animate;
+  background-position: center;
 }
 
 @keyframes animate {
@@ -37,7 +42,7 @@ body {
     background-size: 100%;
   }
   to {
-    background-size: 150%;
+    background-size: 190%;
   }
 }
 
@@ -95,10 +100,10 @@ h2 {
 
 @keyframes EmergencyAnim {
   0% {
-    background-size : 100%;
+    background-size: 100%;
   }
   50% {
-    background-size : 110%;
+    background-size: 110%;
   }
   100% {
     background-size: 100%;
@@ -122,76 +127,45 @@ h2 {
 }
 
 .footer {
-  width: 100%;
-  height: 100px;
+  width: 90%;
+  height: 60px;
   position: absolute;
   bottom: 0;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+25,0.65+100 */
-  background: -moz-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 25%,
-    rgba(0, 0, 0, 0.65) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 25%,
-    rgba(0, 0, 0, 0.65) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 25%,
-    rgba(0, 0, 0, 0.65) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr="#00000000",
-      endColorstr="#a6000000",
-      GradientType=0
-    ); /* IE6-9 */
+  right: 0;
+  background-color: black;
+  display: flex;
 }
 
 .status {
-  position: absolute;
-  left: 0px;
-  bottom: 30px;
-  font-size: 3vw;
-}
-
-.status div {
-  display: inline-block;
+  font-size: 2rem;
   padding: 10px;
-  margin-left: 30px;
-  border-radius: 50px;
-  font-size:30px;
+  margin-left: 10px;
+  transition: background-color 1s;
 }
 
-.status .door {
-  background: black;
-  border: 6px inset gray;
-}
-.status .door.danger {
-  animation: doorAlertAnim 1s infinite;
-  border: 6px inset yellow;
-  background-color:darkred;
+.status.door.on {
+  animation: doorAlertAnim 3s infinite;
+  background-color: darkred;
 }
 
 @keyframes doorAlertAnim {
-  0%,
-  40% {
-    border-color: red;
+  0% {
+    background: red;
+    color: white;
   }
-  50%,
+  50% {
+    background: yellow;
+    color: black;
+  }
   100% {
-    border-color: yellow;
+    background: red;
+    color: white;
   }
 }
 
-.status .doorbell {
+.status.doorbell.on {
   background: yellow;
-  border: 6px inset red;
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  color: black;
 }
 
 @keyframes shake {
@@ -218,25 +192,22 @@ h2 {
 }
 
 .logo {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-  width: 280px;
+  height: 40px;
   padding: 10px;
 }
 
 .notification {
-  transition: opacity 2s;
+  transition: opacity 1s;
   position: absolute;
   opacity: 0;
   left: 0;
   width: 100%;
-  bottom: 10%;
-  color: white;
+  bottom: 20%;
+  color: black;
   font-size: 5vw;
-  border-top: 3px solid white;
-  border-bottom: 3px solid white;
-  background: #000; /* fallback for old browsers */
+  border-top: 3px solid rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(0, 0, 0);
+  background: white; /* fallback for old browsers */
 }
 
 .notification.active {
@@ -247,16 +218,95 @@ small {
   font-size: 2vw;
 }
 
+.ticker-wrap {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  flex:1;
+}
+
+.ticker {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 50s;
+  padding-right: 10%;
+}
+
+.ticker-wrap .ticker-fade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 100;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+47,000000+100&1+16,1+16,0.6+43,0+100 */
+  background: -moz-linear-gradient(
+    left,
+    rgba(0, 0, 0, 1) 16%,
+    rgba(0, 0, 0, 0.6) 43%,
+    rgba(0, 0, 0, 0.56) 47%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 1) 16%,
+    rgba(0, 0, 0, 0.6) 43%,
+    rgba(0, 0, 0, 0.56) 47%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 16%,
+    rgba(0, 0, 0, 0.6) 43%,
+    rgba(0, 0, 0, 0.56) 47%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#000000",
+      endColorstr="#00000000",
+      GradientType=1
+    ); /* IE6-9 */
+}
+
+.ticker li {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.ticker li .title{
+  border-right:5px solid red;
+  padding:0px 15px;
+  margin-right:10px;
+  border-radius:50px;
+}
+/* Specifying the name for animation keyframes and keyframes themselves */
+@keyframes ticker {
+  0% {
+    transform: translate3d(60%, -10px, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-100%, -10px, 0);
+  }
+}
+
 .Welcome {
   background: #6441a5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
-    #2a0845,
+    #78d8df,
     #6441a5
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to bottom,
-    #2a0845,
+    #78d8df,
     #6441a5
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -283,12 +333,12 @@ small {
   background: -webkit-linear-gradient(
     to right,
     #f83600,
-    #fe8c00
+    #fee000
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #f83600,
-    #fe8c00
+    #fee000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -296,36 +346,62 @@ small {
   color: #2a0845;
 }
 
-.Music {
-  background: #870000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #190a05,
-    #870000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #190a05,
-    #870000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .MMMM {
-  background: #efefbb; /* fallback for old browsers */
+  background: #f7ff00; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to bottom,
-    #d4d3dd,
-    #efefbb
+    to right,
+    #db36a4,
+    #f7ff00
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to bottom,
-    #d4d3dd,
-    #efefbb
+    to right,
+    #db36a4,
+    #f7ff00
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: darkblue;
+  color: black;
 }
 
 .Parrot {
   background: white;
   color: black;
+}
+
+.Recent {
+  list-style: none;
+  background: #ff00cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+.Time{
+  border-top:30px solid red;
+}
+
+.Time .time{
+  background:red;
+  margin: 0 auto;
+  display:block;
+  width:400px;
+  padding:10px;
+  border-radius:20px;
+  font-size:9rem;
+}
+
+
+.Metrolink{
+  font-family:'metrolink';
+  font-weight: normal;
+  color:#FED74C;
+  background:#333;
 }

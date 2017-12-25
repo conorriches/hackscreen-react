@@ -10,15 +10,17 @@
     "port": 8000
   },
   "order": [
-    { "name": "Recent", "time": 1 },
-    { "name": "MMMM", "time": 600 },
-    { "name": "Parrot", "time": 2 },
-    { "name": "Food", "time": 6 },
-    { "name": "Welcome", "time": 6 },
-    { "name": "WiFi", "time": 6 }
+    { "name": "Metrolink", "time": 10 },
+    { "name": "Parrot", "time": 1 },
+    { "name": "Recent", "time": 10 },
+    { "name": "Time", "time": 10 },
+    { "name": "MMMM", "time": 10 },
+    { "name": "WiFi", "time": 10 },
+    { "name": "Food", "time": 10 },
+    { "name": "Welcome", "time": 10 }
   ],
   "notification":{
-    "delay": 5000,
-    "bye": "👋👋👋"
+    "delay": 8000,
+    "bye": "👋"
   }
 }
