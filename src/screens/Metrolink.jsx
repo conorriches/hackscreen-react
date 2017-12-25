@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class Welcome extends Component {
+class Metrolink extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome<br/> to<br/> Hacman</h1>
+        <h3>Metrolink Updates</h3>
       </div>
     );
   }
 }
 
-export default Welcome;
+export default Metrolink;

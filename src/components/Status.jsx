@@ -8,13 +8,8 @@ class Status extends Component {
 
   render() {
     return (
-      <div className="status">
-        {this.props.doorbell ? (
-          <div className="doorbell">🔔</div>
-        ) : <div/>}
-        <div className={classnames("door", this.props.state ? "danger" : "")}>
-          {this.props.state ? "DOOR OPEN ⚠️" : " DOOR CLOSED👌"}
-        </div>
+      <div className={classnames("status", this.props.className, this.props.condition?"on":"off")}>
+        {this.props.condition ? this.props.true : this.props.false}
       </div>
     );
   }
