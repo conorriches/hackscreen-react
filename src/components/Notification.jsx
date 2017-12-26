@@ -7,7 +7,7 @@ class Notification extends Component {
       <div
         className={classNames(
           "notification",
-          this.props.text != Config.notification.bye ? "active" : "inactive"
+          this.props.text !== Config.notification.bye ? "active" : "inactive"
         )}
       >
         {this.props.text}
