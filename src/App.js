@@ -3,7 +3,6 @@ import classnames from "classnames";
 import openSocket from "socket.io-client";
 
 //Our components
-import Announcement from "./components/Announcement";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
 import Logo from "./components/Logo";
@@ -34,7 +33,8 @@ class App extends Component {
         doorbell: 0,
         entry: 0,
         emergency: 0
-      }
+      },
+      metrolink: {}
     };
 
     socket.on("DOOR_STATE", data => {
@@ -56,9 +56,12 @@ class App extends Component {
       let userData = {
         name: data,
         time: n
-      }
+      };
       //If we hav already seen the user, remove their last position
-      const count = this.state.lastEntered.filter((n) => {console.log(n);return n.name == data}).length;
+      const count = this.state.lastEntered.filter(n => {
+        console.log(n);
+        return n.name === data;
+      }).length;
       if (count > 0)
         this.setState({
           lastEntered: this.state.lastEntered.filter(item => {
@@ -75,6 +78,10 @@ class App extends Component {
     socket.on("DOORBELL", data => {
       this.setNotification("🔔 DOORBELL AT IRON DOORS 🔔");
       this.setState({ doorbell: 1, audio: { doorbell: 1 } });
+    });
+
+    socket.on("METROLINK", data => {
+      this.setState({metrolink:data});
     });
   }
 
@@ -129,11 +136,6 @@ class App extends Component {
     }, 1000);
   }
 
-  handleData(data) {
-    let result = JSON.parse(data);
-    console.log(result);
-  }
-
   render() {
     const Component = Screens[this.state.slide];
 
@@ -148,7 +150,7 @@ class App extends Component {
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
-            this.state.audio.doorbell = 0;
+            this.setState({ audio: { doorbell: 0 } });
           }}
         />
 
@@ -159,7 +161,7 @@ class App extends Component {
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
-            this.state.audio.entry = 0;
+            this.setState({ audio: { entry: 0 } });
           }}
         />
 
@@ -172,7 +174,7 @@ class App extends Component {
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
-            this.state.audio.emergency = 0;
+            this.setState({ audio: { emergency: 0 } });
           }}
         />
 
@@ -207,12 +209,19 @@ class App extends Component {
           <Ticker
             items={[
               {
-                "title": "Last Entered",
-                "value": this.state.lastEntered.slice().map((i)=> {
-                  return i.name + " (" + i.time + ") "
-                }).reverse()
+                title: "Last Entered",
+                value: this.state.lastEntered
+                  .slice()
+                  .map(i => {
+                    return i.name + " (" + i.time + ") ";
+                  })
+                  .reverse()
               },
-              { "title": "WiFi", "value": "To connect, select Hackspace  and enter password:T3h4x0rZ" }
+              {
+                title: "WiFi",
+                value:
+                  "To connect, select Hackspace  and enter password:T3h4x0rZ"
+              }
             ]}
           />
         </div>

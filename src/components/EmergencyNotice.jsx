@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Transition from "react-transition-group/Transition";
-import * as Components from "../screens";
 
 class EmergencyNotice extends Component {
   constructor(props) {
