@@ -6,6 +6,7 @@
 * Fullscreen information for big TVs
 * Rotates continually
 * Customisable screens, ordering, timing
+* Pull in data from external sources
 * Nice animations for smooth appearance
 * Simple.
 * Can run on a raspberry pi for super easy setup.

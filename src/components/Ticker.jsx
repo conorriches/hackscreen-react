@@ -11,6 +11,7 @@ class Ticker extends Component {
           {this.props.items.map(k => {
             return <li><span className="title">{k.title}</span>{k.value}</li>;
           })}
+          <img src="/assets/loveparrot.gif" alt=""/>
         </div>
       </div>
     );

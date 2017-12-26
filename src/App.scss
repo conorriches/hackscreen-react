@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web|Rubik");
+@font-face {
+  font-family: metrolink;
+  src: url("fonts/PantographSans.ttf");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  height: 100%;
+}
+
+body {
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 3rem;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+#root {
+  height: 100%;
+}
+
+.fs {
+  height: 100%;
+  transition: opacity 1s;
+  transition-timing-function: ease-in-out;
+  animation: 2s ease-in-out 0s alternate none infinite animate;
+  background-position: center;
+
+  @keyframes animate {
+    from {
+      background-size: 100%;
+    }
+    to {
+      background-size: 190%;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 8vw;
+}
+
+h2 {
+  font-size: 6vw;
+}
+
+#App {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+}
+
+.emergency {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffffff,
+    #ffffff 20px,
+    #cccccc 0px,
+    #cccccc 40px
+  );
+  animation: EmergencyAnim 30s linear infinite;
+
+  &__inner {
+    position: relative;
+    background: white;
+    color: black;
+    border: 5px solid red;
+    border-top: 20px solid red;
+    width: 80%;
+    height: 80%;
+    margin: 30px auto;
+  }
+
+  @keyframes EmergencyAnim {
+    0% {
+      background-size: 100%;
+    }
+    50% {
+      background-size: 110%;
+    }
+    100% {
+      background-size: 100%;
+    }
+  }
+}
+
+.fade {
+  transition: opacity 2s;
+  opacity: 0;
+  height: 0px;
+}
+
+.fade-exited {
+  opacity: 1;
+  pointer-events: none;
+  height: 100%;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.footer {
+  width: 90%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  display: flex;
+
+  .logo {
+    height: 40px;
+    padding: 10px;
+  }
+
+  
+  .status {
+    font-size: 2rem;
+    padding: 10px;
+    margin-left: 10px;
+    transition: background-color 1s;
+  }
+
+  .status.doorbell.on {
+    background: yellow;
+    color: black;
+  }
+
+  .status.door.on {
+    animation: doorAlertAnim 3s infinite;
+    background-color: darkred;
+
+    @keyframes doorAlertAnim {
+      0% {
+        background: red;
+        color: white;
+      }
+      50% {
+        background: yellow;
+        color: black;
+      }
+      100% {
+        background: red;
+        color: white;
+      }
+    }
+  }
+}
+
+
+.notification {
+  transition: opacity 1s;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  bottom: 20%;
+  color: black;
+  font-size: 5vw;
+  border-top: 3px solid rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(0, 0, 0);
+  background: white; /* fallback for old browsers */
+}
+
+.notification.active {
+  opacity: 1;
+}
+
+small {
+  font-size: 2vw;
+}
+
+.ticker-wrap {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  flex: 1;
+
+  .ticker-fade {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 100;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 16%,
+      rgba(0, 0, 0, 0.6) 43%,
+      rgba(0, 0, 0, 0.56) 47%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .ticker {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: ticker;
+    animation-duration: 50s;
+    padding-right: 10%;
+  }
+
+  @keyframes ticker {
+    0% {
+      transform: translate3d(60%, 0px, 0);
+      visibility: visible;
+    }
+    100% {
+      transform: translate3d(-100%, 0px, 0);
+    }
+  }
+  li {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 2rem;
+    color: white;
+
+    .title {
+      border-right: 5px solid red;
+      padding: 0px 15px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+  }
+}
+
+.Welcome {
+  background: #6441a5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #78d8df,
+    #6441a5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #78d8df,
+    #6441a5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.WiFi {
+  color: black;
+  background: #833ab4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #fcb045,
+    #fd1d1d,
+    #833ab4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fcb045,
+    #fd1d1d,
+    #833ab4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.Food {
+  background: #fe8c00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f83600,
+    #fee000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f83600,
+    #fee000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  &__strong {
+    color: #2a0845;
+  }
+}
+
+.MMMM {
+  background: #f7ff00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #db36a4,
+    #f7ff00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #db36a4,
+    #f7ff00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: black;
+}
+
+.Parrot {
+  background: white;
+  color: black;
+}
+
+.Recent {
+  list-style: none;
+  background: #ff00cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.Time {
+  border-top: 10px solid red;
+
+  &__time {
+    background: red;
+    margin: 0 auto;
+    display: block;
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 7rem;
+  }
+
+  &__date {
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 5rem;
+    color: #f66;
+  }
+}
+
+.Metrolink {
+  font-family: "metrolink";
+  font-weight: normal;
+  color: #fed74c;
+  background: #333;
+
+  &__platforms {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__platform {
+    background: #fed74c;
+    color: #333;
+    flex-grow: 1;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &__tram {
+    margin: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 3vw;
+  }
+
+  &__lastUpdated {
+    font-size: 2vw;
+    margin-top: 50px;
+  }
+}
