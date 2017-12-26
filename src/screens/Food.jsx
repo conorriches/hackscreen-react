@@ -5,8 +5,9 @@ class Food extends Component {
     return (
       <div>
         <h1>Wednesday Food Order!</h1>
-        <h2>hacman.org.uk/food</h2>
-        <h3 className="strong">Food Order Closes at 7pm</h3>
+        <h2 className="Food__strong">hacman.org.uk/food</h2>
+        <h4>Food order closes at 7pm <img src="/assets/hamburgerparrot.gif" alt=""/></h4>
+        
       </div>
     );
   }

@@ -20,7 +20,7 @@ class EmergencyNotice extends Component {
   render() {
     return this.props.emergency ? (
       <div className="emergency">
-        <div className="inner">
+        <div className="emergency__inner">
           <h2>{this.state.updated}</h2>
           {this.props.emergency}
         </div>

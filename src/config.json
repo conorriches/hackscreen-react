@@ -10,13 +10,13 @@
     "port": 8000
   },
   "order": [
+    { "name": "WiFi", "time": 10 },
+    { "name": "Food", "time": 10 },
     { "name": "Time", "time": 10 },
     { "name": "Metrolink", "time": 10 },
     { "name": "Recent", "time": 10 },
-    { "name": "Parrot", "time": 10 },
+    { "name": "Parrot", "time": 1 },
     { "name": "MMMM", "time": 10 },
-    { "name": "WiFi", "time": 10 },
-    { "name": "Food", "time": 10 },
     { "name": "Welcome", "time": 10 }
   ],
   "notification":{

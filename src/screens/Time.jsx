@@ -7,9 +7,9 @@ class Time extends Component {
       <div>
         <h2>
           It is currently
-          <div className="time">{`${now.getHours()}:${now.getMinutes()}`}</div>
+          <div className="Time__time">{`${now.getHours()}:${now.getMinutes()}`}</div>
           on
-          <div className="date">{now.toDateString()}</div>
+          <div className="Time__date">{now.toDateString()}</div>
         </h2>
       </div>
     );
