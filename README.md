@@ -3,6 +3,7 @@ Hackscreen is a full-screen presentational webapp for hackerspaces and public/me
 
 ## Screenshots
 ![Screenshot of the Metrolink Screen](./docs/screenshot.png) 
+![Screenshot of the Member Meeting](./docs/screenshot2.png) 
 
 ## Data Shown
 Out of the box:
