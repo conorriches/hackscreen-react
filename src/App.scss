@@ -126,6 +126,20 @@ h2 {
   opacity: 0;
 }
 
+.time{
+  .dots {
+    animation: blinker 1s ease-in infinite;
+    display:inline;
+    padding:2px;
+
+    @keyframes blinker {
+      50% {
+        opacity:0.5
+      }
+    }
+  }
+}
+
 .footer {
   width: 90%;
   height: 60px;
@@ -134,10 +148,14 @@ h2 {
   right: 0;
   background-color: black;
   display: flex;
-
-  .logo {
-    height: 40px;
+  border-radius: 5px 0px 0px 0px;
+  .time {
+    font-size: 35px;
     padding: 10px;
+  }
+  .logo {
+    height: 30px;
+    padding: 15px;
   }
 
   .status {
@@ -253,10 +271,18 @@ small {
 }
 
 .Welcome {
-  background: #DCE35B;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color:blue;
+  background: #dce35b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #45b649,
+    #dce35b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #45b649,
+    #dce35b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: blue;
 }
 
 .WiFi {
@@ -373,8 +399,8 @@ small {
     border-radius: 5px;
   }
 
-  &__trams{
-    padding:0;
+  &__trams {
+    padding: 0;
   }
 
   &__tram {
@@ -391,7 +417,6 @@ small {
 
   &__messageBoard {
     font-size: 1.2rem;
-    color:red;
+    color: red;
   }
-
 }
