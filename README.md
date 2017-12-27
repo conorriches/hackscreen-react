@@ -4,6 +4,27 @@ Hackscreen is a full-screen presentational webapp for hackerspaces and public/me
 ## Screenshots
 ![Screenshot of the Metrolink Screen](./docs/screenshot.png) 
 
+## Data Shown
+Out of the box:
+* Screens
+  * Live Metrolink times
+  * Member Meeting information
+  * Time and Date
+  * Recent members
+  * Food Order for open evening 
+  * WiFi information
+  * Emergency screen
+  * Welcome screen
+* Status
+  * Doorbell - normal, rung, someone waiting outside
+  * Door - closed or open
+* Ticker
+  * Latest Members to enter
+  * Wifi info
+* Notifications
+  * When someone enters
+  * When the doorbell is rang
+
 ## Features
 * Fullscreen information for big TVs.
 * Rotates continually.
