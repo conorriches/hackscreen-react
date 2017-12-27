@@ -191,12 +191,13 @@ small {
       border-radius: 50px; }
 
 .Welcome {
-  background: #6441a5;
+  background: #DCE35B;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #78d8df, #6441a5);
+  background: -webkit-linear-gradient(to top, #45B649, #DCE35B);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #78d8df, #6441a5);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+  background: linear-gradient(to top, #45B649, #DCE35B);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: blue; }
 
 .WiFi {
   color: black;
@@ -273,6 +274,8 @@ small {
     margin: 10px;
     padding: 10px;
     border-radius: 5px; }
+  .Metrolink__trams {
+    padding: 0; }
   .Metrolink__tram {
     margin: 0;
     list-style: none;
@@ -281,3 +284,6 @@ small {
   .Metrolink__lastUpdated {
     font-size: 2vw;
     margin-top: 50px; }
+  .Metrolink__messageBoard {
+    font-size: 1.2rem;
+    color: red; }

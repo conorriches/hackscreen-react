@@ -140,7 +140,6 @@ h2 {
     padding: 10px;
   }
 
-  
   .status {
     font-size: 2rem;
     padding: 10px;
@@ -173,7 +172,6 @@ h2 {
     }
   }
 }
-
 
 .notification {
   transition: opacity 1s;
@@ -255,17 +253,10 @@ small {
 }
 
 .Welcome {
-  background: #6441a5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #78d8df,
-    #6441a5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #78d8df,
-    #6441a5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #DCE35B;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:blue;
 }
 
 .WiFi {
@@ -382,6 +373,10 @@ small {
     border-radius: 5px;
   }
 
+  &__trams{
+    padding:0;
+  }
+
   &__tram {
     margin: 0;
     list-style: none;
@@ -393,4 +388,10 @@ small {
     font-size: 2vw;
     margin-top: 50px;
   }
+
+  &__messageBoard {
+    font-size: 1.2rem;
+    color:red;
+  }
+
 }
