@@ -5,6 +5,19 @@ Hackscreen is a full-screen presentational webapp for hackerspaces and public/me
 ![Screenshot of the Metrolink Screen](./docs/screenshot.png) 
 ![Screenshot of the Member Meeting](./docs/screenshot2.png) 
 
+
+## Features
+* Fullscreen information for big TVs.
+* Rotates continually.
+* Sounds played for notifications
+* Customisable screens, ordering, styles, and timing.
+* Pulls in live Metrolink data from external APIs.
+* Communication between server and clients.
+* Add your own screens super easily - anyone can do it with minimal HTML experience
+* Smooth animations for maximum enjoy
+* Can run on a raspberry pi for super easy setup.
+* Party Parrots
+
 ## Data Shown
 Out of the box:
 * Screens
@@ -25,17 +38,6 @@ Out of the box:
 * Notifications
   * When someone enters
   * When the doorbell is rang
-
-## Features
-* Fullscreen information for big TVs.
-* Rotates continually.
-* Customisable screens, ordering, styles, and timing.
-* Pulls in live Metrolink data from external APIs.
-* Communication between server and clients.
-* Add your own screens super easily - anyone can do it with minimal HTML experience
-* Smooth animations for maximum enjoy
-* Can run on a raspberry pi for super easy setup.
-* Party Parrots
 
 ## Tech
 * create-react-app
