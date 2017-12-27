@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classnames from "classnames";
 
 class Time extends Component {
   getTime() {
