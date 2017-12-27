@@ -12,12 +12,12 @@
   "order": [
     { "name": "Welcome", "time": 10 },
     { "name": "Metrolink", "time": 30 },
-    { "name": "WiFi", "time": 20 },
+    { "name": "WiFi", "time": 10 },
     { "name": "Time", "time": 10 },
     { "name": "MMMM", "time": 15 },
     { "name": "Food", "time": 10 },
     { "name": "Recent", "time": 15 },
-    { "name": "Parrot", "time": 1 }
+    { "name": "Parrot", "time": 2 }
   ],
   "notification":{
     "delay": 8000,

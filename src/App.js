@@ -6,6 +6,7 @@ import openSocket from "socket.io-client";
 import Notification from "./components/Notification";
 import Status from "./components/Status";
 import Logo from "./components/Logo";
+import Time from "./components/Time";
 import Ticker from "./components/Ticker";
 import EmergencyNotice from "./components/EmergencyNotice";
 import * as Screens from "./screens";
@@ -194,6 +195,7 @@ class App extends Component {
 
         <div className="footer">
           <Logo />
+          <Time className="footer__time"/>
           <Status
             className="doorbell"
             condition={this.state.doorbell}

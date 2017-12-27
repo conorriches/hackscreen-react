@@ -96,6 +96,15 @@ h2 {
 .hidden {
   opacity: 0; }
 
+.time .dots {
+  animation: blinker 1s ease-in infinite;
+  display: inline;
+  padding: 2px; }
+
+@keyframes blinker {
+  50% {
+    opacity: 0.5; } }
+
 .footer {
   width: 90%;
   height: 60px;
@@ -103,10 +112,14 @@ h2 {
   bottom: 0;
   right: 0;
   background-color: black;
-  display: flex; }
-  .footer .logo {
-    height: 40px;
+  display: flex;
+  border-radius: 5px 0px 0px 0px; }
+  .footer .time {
+    font-size: 35px;
     padding: 10px; }
+  .footer .logo {
+    height: 30px;
+    padding: 15px; }
   .footer .status {
     font-size: 2rem;
     padding: 10px;
@@ -191,11 +204,11 @@ small {
       border-radius: 50px; }
 
 .Welcome {
-  background: #DCE35B;
+  background: #dce35b;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #45B649, #DCE35B);
+  background: -webkit-linear-gradient(to top, #45b649, #dce35b);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #45B649, #DCE35B);
+  background: linear-gradient(to top, #45b649, #dce35b);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: blue; }
 
