@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web|Rubik");
-@font-face {
-  font-family: metrolink;
-  src: url("fonts/PantographSans.ttf");
-}
 
 html,
 body {
@@ -60,6 +56,14 @@ h1 {
 
 h2 {
   font-size: 6vw;
+}
+
+h4{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  width: 70%;
+  margin-top: 40px;
 }
 
 #App {
@@ -267,156 +271,5 @@ small {
       margin-right: 10px;
       border-radius: 50px;
     }
-  }
-}
-
-.Welcome {
-  background: #dce35b; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #45b649,
-    #dce35b
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #45b649,
-    #dce35b
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: blue;
-}
-
-.WiFi {
-  color: black;
-  background: #833ab4; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #fcb045,
-    #fd1d1d,
-    #833ab4
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #fcb045,
-    #fd1d1d,
-    #833ab4
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.Food {
-  background: #fe8c00; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f83600,
-    #fee000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f83600,
-    #fee000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  &__strong {
-    color: #2a0845;
-  }
-}
-
-.MMMM {
-  background: #f7ff00; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #db36a4,
-    #f7ff00
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #db36a4,
-    #f7ff00
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: black;
-}
-
-.Parrot {
-  background: white;
-  color: black;
-}
-
-.Recent {
-  list-style: none;
-  background: #ff00cc; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #333399,
-    #ff00cc
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #333399,
-    #ff00cc
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.Time {
-  border-top: 10px solid red;
-
-  &__time {
-    background: red;
-    margin: 0 auto;
-    display: block;
-    width: 400px;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 7rem;
-  }
-
-  &__date {
-    margin: 0 auto;
-    display: block;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 5rem;
-    color: #f66;
-  }
-}
-
-.Metrolink {
-  font-family: "metrolink";
-  font-weight: normal;
-  color: #fed74c;
-  background: #333;
-
-  &__platforms {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  &__platform {
-    background: #fed74c;
-    color: #333;
-    flex-grow: 1;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  &__trams {
-    padding: 0;
-  }
-
-  &__tram {
-    margin: 0;
-    list-style: none;
-    text-align: left;
-    font-size: 3vw;
-  }
-
-  &__lastUpdated {
-    font-size: 2vw;
-    margin-top: 50px;
-  }
-
-  &__messageBoard {
-    font-size: 1.2rem;
-    color: red;
   }
 }

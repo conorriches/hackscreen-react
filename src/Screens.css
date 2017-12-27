@@ -1,0 +1,87 @@
+@font-face {
+  font-family: metrolink;
+  src: url("fonts/PantographSans.ttf"); }
+
+/*
+* Add Styles for screens here!
+* 1. Name class the same as the screen name - INCLUDE CAPITAL FIRST LETTER
+* 2. Put your styles in!
+* 3. Use the build-css or watch-css scripts to transpice to CSS.
+*/
+.Welcome {
+  background: #dce35b;
+  background: linear-gradient(to top, #45b649, #dce35b);
+  color: blue; }
+
+.WiFi {
+  background: #833ab4;
+  background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+  color: black; }
+
+.Food {
+  background: #fe8c00;
+  background: linear-gradient(to right, #f83600, #fee000); }
+  .Food__strong {
+    color: #2a0845; }
+
+.MMMM {
+  background: #f7ff00;
+  background: linear-gradient(to right, #db36a4, #f7ff00);
+  color: black; }
+
+.Parrot {
+  background: white;
+  color: black; }
+
+.Recent {
+  background: #ff00cc;
+  background: linear-gradient(to right, #333399, #ff00cc);
+  list-style: none; }
+
+.Time {
+  border-top: 10px solid red; }
+  .Time__time {
+    background: red;
+    border-radius: 20px;
+    display: block;
+    font-size: 7rem;
+    margin: 0 auto;
+    padding: 10px;
+    width: 400px; }
+  .Time__date {
+    color: #f66;
+    border-radius: 20px;
+    display: block;
+    font-size: 5rem;
+    margin: 0 auto;
+    padding: 10px; }
+
+.Metrolink {
+  background: #333;
+  color: #fed74c;
+  font-family: "metrolink";
+  font-weight: normal; }
+  .Metrolink__platforms {
+    display: flex;
+    margin: 0 auto;
+    width: 90%; }
+  .Metrolink__platform {
+    background: #fed74c;
+    border-radius: 5px;
+    color: #333;
+    flex-grow: 1;
+    margin: 10px;
+    padding: 10px; }
+  .Metrolink__trams {
+    padding: 0; }
+  .Metrolink__tram {
+    font-size: 3vw;
+    list-style: none;
+    margin: 0;
+    text-align: left; }
+  .Metrolink__lastUpdated {
+    font-size: 2vw;
+    margin-top: 50px; }
+  .Metrolink__messageBoard {
+    color: red;
+    font-size: 1.2rem; }

@@ -21,7 +21,7 @@ class Metrolink extends Component {
     return (
       <div>
         <h3>Metrolink Updates</h3>
-        <h4>New Islington</h4>
+        <h5>New Islington</h5>
 
         {this.state.gotData ? (
           <div>
@@ -39,14 +39,14 @@ class Metrolink extends Component {
                         return tram.destination ? (
                           <li className="Metrolink__tram">
                             <b>
-                              {tram.wait == 0 ? `arrv` : `${tram.wait} min`}
+                              {tram.wait === 0 ? `arrv` : `${tram.wait} min`}
                             </b>{" "}
                             - {tram.destination}
                           </li>
                         ) : (
                           <li className="Metrolink__tram">
                             <b>
-                              {i == 0
+                              {i === 0
                                 ? "No trams scheuled to depart within the next half an hour."
                                 : ""}
                             </b>
