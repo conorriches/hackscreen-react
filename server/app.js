@@ -48,45 +48,62 @@ io.on("connection", socket => {
     if (slideName === "Metrolink") {
       console.log("Getting Met times");
 
-      let URL =
-        "https://api.tfgm.com/odata/Metrolinks?key=<YOUR_TFGM_API_KEY_HERE>&$filter=TLAREF eq 'NIS'";
+      let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
+        config.metrolink.api_key
+      }&$filter=TLAREF eq 'NIS'`;
 
-      https
-        .get(URL, resp => {
-          let data = "";
+      console.log(URL);
 
-          // A chunk of data has been recieved.
-          resp.on("data", chunk => {
-            data += chunk;
-          });
+      try {
+        https
+          .get(URL, resp => {
+            let data = "";
 
-          // The whole response has been received. Print out the result.
-          resp.on("end", () => {
-            let toReturn = {
-              platforms: [],
-              lastUpdated: new Date().toUTCString(),
-            };
-
-            const json = JSON.parse(data);
-           
-            json.value.forEach(i => {
-              toReturn.platforms.push({
-                line: i.Line,
-                direction: i.Direction,
-                messageBoard: i.MessageBoard,
-                trams: [
-                  { destination: i.Dest0, carriages: i.Carriages0, wait: i.Wait0 },
-                  { destination: i.Dest1, carriages: i.Carriages1, wait: i.Wait1 },
-                  { destination: i.Dest2, carriages: i.Carriages2, wait: i.Wait2 },
-                ]
-              });
+            // A chunk of data has been recieved.
+            resp.on("data", chunk => {
+              data += chunk;
             });
-            socket.emit("METROLINK", toReturn);
+
+            // The whole response has been received. Print out the result.
+            resp.on("end", () => {
+              let toReturn = {
+                platforms: [],
+                lastUpdated: new Date().toUTCString()
+              };
+
+              const json = JSON.parse(data);
+
+              json.value.forEach(i => {
+                toReturn.platforms.push({
+                  line: i.Line,
+                  direction: i.Direction,
+                  messageBoard: i.MessageBoard,
+                  trams: [
+                    {
+                      destination: i.Dest0,
+                      carriages: i.Carriages0,
+                      wait: i.Wait0
+                    },
+                    {
+                      destination: i.Dest1,
+                      carriages: i.Carriages1,
+                      wait: i.Wait1
+                    },
+                    {
+                      destination: i.Dest2,
+                      carriages: i.Carriages2,
+                      wait: i.Wait2
+                    }
+                  ]
+                });
+              });
+              socket.emit("METROLINK", toReturn);
+            });
+          })
+          .on("error", err => {
+            console.log("Error: " + err.message);
           });
-        })
-        .on("error", err => {
-          console.log("Error: " + err.message);
-        });
+      } catch (e) {}
     }
   });
 });
