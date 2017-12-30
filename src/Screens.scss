@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web|Rubik");
 @font-face {
   font-family: metrolink;
   src: url("fonts/PantographSans.ttf");
@@ -11,9 +12,10 @@
 */
 
 .Welcome {
-  background: #dce35b;
-  background: linear-gradient(to top, #45b649, #dce35b);
-  color: blue;
+  font-family:'Archivo';
+  background: #1c92d2;
+  background: linear-gradient(to right, #f2fcfe, #1c92d2);
+  color: black;
 }
 
 .WiFi {

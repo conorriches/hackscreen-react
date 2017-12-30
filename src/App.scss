@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Archivo|Titillium+Web|Rubik");
+@import url("https://fonts.googleapis.com/css?family=Rubik");
 
 html,
 body {
@@ -29,17 +29,7 @@ body {
   height: 100%;
   transition: opacity 1s;
   transition-timing-function: ease-in-out;
-  animation: 2s ease-in-out 0s alternate none infinite animate;
   background-position: center;
-
-  @keyframes animate {
-    from {
-      background-size: 100%;
-    }
-    to {
-      background-size: 190%;
-    }
-  }
 }
 
 h1,
