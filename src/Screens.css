@@ -19,6 +19,9 @@
   background: #833ab4;
   background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
   color: black; }
+  .WiFi h3 {
+    font-size: 6rem;
+    font-family: 'Titillium Web'; }
 
 .Food {
   background: #fe8c00;
@@ -85,5 +88,9 @@
     font-size: 2vw;
     margin-top: 50px; }
   .Metrolink__messageBoard {
-    color: red;
-    font-size: 2rem; }
+    background: #fed74c;
+    color: #333;
+    border-top: 1px solid #333;
+    font-size: 2rem;
+    margin: 10px;
+    padding: 10px; }

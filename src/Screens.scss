@@ -22,6 +22,12 @@
   background: #833ab4;
   background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
   color: black;
+
+  h3{
+    font-size:6rem;
+    font-family:'Titillium Web';
+  }
+  
 }
 
 .Food {
@@ -111,7 +117,11 @@
   }
 
   &__messageBoard {
-    color: red;
+    background: #fed74c;
+    color :#333;
+    border-top:1px solid #333;
     font-size: 2rem;
+    margin: 10px;
+    padding: 10px;
   }
 }
