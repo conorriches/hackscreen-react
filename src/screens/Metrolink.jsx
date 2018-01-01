@@ -31,7 +31,7 @@ class Metrolink extends Component {
                   <div className="Metrolink__platform">
                     
                     <div className="Metrolink__direction">
-                      {platform.direction}
+                      {platform.direction == 'Incoming'? "Inbound Trams" : "Outbound Trams"}
                     </div>
 
                     <ul className="Metrolink__trams">
@@ -39,7 +39,7 @@ class Metrolink extends Component {
                         return tram.destination ? (
                           <li className="Metrolink__tram">
                             <b>
-                              {tram.wait === 0 ? `arrv` : `${tram.wait} min`}
+                              {tram.wait < 1 ? `arrv` : `${tram.wait} min`}
                             </b>{" "}
                             - {tram.destination}
                           </li>
@@ -47,7 +47,7 @@ class Metrolink extends Component {
                           <li className="Metrolink__tram">
                             <b>
                               {i === 0
-                                ? "No trams scheuled to depart within the next half an hour."
+                                ? "No trams scheduled to depart within the next half an hour."
                                 : ""}
                             </b>
                           </li>
@@ -69,7 +69,7 @@ class Metrolink extends Component {
             </div>
           </div>
         ) : (
-          "No data"
+          "Please Wait - LIVE tram data coming soon."
         )}
       </div>
     );
