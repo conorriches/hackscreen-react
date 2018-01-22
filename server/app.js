@@ -36,6 +36,54 @@ io.on("connection", socket => {
       case "door/outer/doorbell":
         socket.emit("DOORBELL", message.toString());
         break;
+
+      case "button/big/red/state":
+        var rnd = randomInt(0, 100);
+        var audioCmd = "";
+
+        //decide what annoyance we want
+        switch (true) {
+          case rnd > 90:
+            audioCmd = "mpg123 ~/doorbell/audio/profanity.mp3";
+            break;
+          case rnd > 80:
+            audioCmd = "mpg123 ~/doorbell/audio/AirHorn.mp3";
+            break;
+          case rnd > 70:
+            audioCmd = "mpg123 ~/doorbell/audio/homer.mp3";
+            break;
+          case rnd > 60:
+            audioCmd = "mpg123 ~/doorbell/audio/homer-boogey.mp3";
+            break;
+          case rnc > 50:
+            audioCmd = "mpg123 ~/doorbell/audio/will.mp3";
+            break;
+          case rnd > 40:
+            audioCmd = "mpg123 ~/doorbell/audio/bart-aye.mp3";
+            break;
+          case rnd > 30:
+            audioCmd = "mpg123 ~/doorbell/audio/dixie.mp3";
+            break;
+          case rnd > 20:
+            audioCmd = "mpg123 ~/doorbell/audio/Antiques.mp3";
+            break;
+          case rnd > 10:
+            audioCmd = "mpg123 ~/doorbell/audio/THX.mp3";
+            break;
+          case rnd > 4:
+            audioCmd = "ogg123 ~/doorbell/audio/WIlhelp_Scream.ogg";
+            break;
+          case rnd > 2:
+            audioCmd = "mpg123 ~/doorbell/audio/yamaha.mp3";
+            break;
+          default:
+            audioCmd = "ogg123 ~/doorbell/audio/ipenema.flac";
+            break;
+        }
+
+        //play the annoyance
+        exec(audioCmd, function puts(error, stdout, stderr) {});
+
       default:
         console.log("Unknown topic", topic);
     }
