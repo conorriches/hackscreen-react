@@ -63,17 +63,21 @@ class App extends Component {
         console.log(n);
         return n.name === data;
       }).length;
-      if (count > 0)
+      if (count > 0){
         this.setState({
           lastEntered: this.state.lastEntered.filter(item => {
             return item.name !== data;
           })
         });
-
+        this.setState({ audio: { entry: 2 } });
+      }else{
+        this.setState({ audio: { entry: 1 } });
+      }
+      
       this.setState({
         lastEntered: this.state.lastEntered.slice(-5).concat(userData)
       });
-      this.setState({ audio: { entry: 1 } });
+
     });
 
     socket.on("DOORBELL", data => {
@@ -158,7 +162,18 @@ class App extends Component {
         <Sound
           url="/audio/entered.ogg"
           playStatus={
-            this.state.audio.entry ? Sound.status.PLAYING : Sound.status.STOPPED
+            this.state.audio.entry === 1 ? Sound.status.PLAYING : Sound.status.STOPPED
+          }
+          playFromPosition={0}
+          onFinishedPlaying={() => {
+            this.setState({ audio: { entry: 0 } });
+          }}
+        />
+
+        <Sound
+          url="/audio/reentered.ogg"
+          playStatus={
+            this.state.audio.entry === 2 ? Sound.status.PLAYING : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
