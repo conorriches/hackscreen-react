@@ -122,10 +122,10 @@ class App extends Component {
       let slideName = thisSlide.name || "";
       let slideTime = thisSlide.time * 1000 || 10000;
 
-      socket.emit("SLIDE_CHANGED", slideName);
+      socket.emit("SLIDE_CHANGED", thisSlide);
 
       this.setState({
-        slide: thisSlide.name,
+        slide: slideName,
         index: this.state.index,
         hide: 0
       });

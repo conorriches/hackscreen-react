@@ -90,17 +90,23 @@ io.on("connection", socket => {
   });
 
   //When the client tells us the slide changed
-  socket.on("SLIDE_CHANGED", slideName => {
-    console.log("Slide changed to ", slideName);
-
-    if (slideName === "Metrolink") {
+  socket.on("SLIDE_CHANGED", slideObject => {
+    console.log("Slide changed to ", slideObject.name);
+    let stationCode = "";
+    switch (true) {
+      case slideObject.station == "New Islington":
+        stationCode = "NIS";
+        break;
+      case slideObject.station == "Holt Town":
+        stationCode = "NIS";
+        break;
+    }
+    if (slideObject.name === "Metrolink") {
       console.log("Getting Met times");
 
       let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
         config.metrolink.api_key
-      }&$filter=TLAREF eq 'NIS'`;
-
-      console.log(URL);
+      }&$filter=TLAREF eq '${slideObject.station || "NIS"}'`;
 
       try {
         https
@@ -115,36 +121,42 @@ io.on("connection", socket => {
             // The whole response has been received. Print out the result.
             resp.on("end", () => {
               let toReturn = {
+                gotResponse: false,
                 platforms: [],
                 lastUpdated: new Date().toUTCString()
               };
 
               const json = JSON.parse(data);
 
-              json.value.forEach(i => {
-                toReturn.platforms.push({
-                  line: i.Line,
-                  direction: i.Direction,
-                  messageBoard: i.MessageBoard,
-                  trams: [
-                    {
-                      destination: i.Dest0,
-                      carriages: i.Carriages0,
-                      wait: i.Wait0
-                    },
-                    {
-                      destination: i.Dest1,
-                      carriages: i.Carriages1,
-                      wait: i.Wait1
-                    },
-                    {
-                      destination: i.Dest2,
-                      carriages: i.Carriages2,
-                      wait: i.Wait2
-                    }
-                  ]
+              try {
+                json.value.forEach(i => {
+                  toReturn.platforms.push({
+                    line: i.Line,
+                    direction: i.Direction,
+                    messageBoard: i.MessageBoard,
+                    trams: [
+                      {
+                        destination: i.Dest0,
+                        carriages: i.Carriages0,
+                        wait: i.Wait0
+                      },
+                      {
+                        destination: i.Dest1,
+                        carriages: i.Carriages1,
+                        wait: i.Wait1
+                      },
+                      {
+                        destination: i.Dest2,
+                        carriages: i.Carriages2,
+                        wait: i.Wait2
+                      }
+                    ]
+                  });
                 });
-              });
+                toReturn.gotResponse = true;
+              } catch (e) {
+
+              }
               socket.emit("METROLINK", toReturn);
             });
           })

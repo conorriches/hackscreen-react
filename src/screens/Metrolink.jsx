@@ -4,7 +4,8 @@ class Metrolink extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gotData: 0
+      gotData: 0,
+      station: 'fuck'
     };
   }
 
@@ -21,7 +22,7 @@ class Metrolink extends Component {
     return (
       <div>
         <h3>Metrolink Updates</h3>
-        <h5>New Islington</h5>
+        <h5>{this.state.station}</h5>
 
         {this.state.gotData ? (
           <div>
