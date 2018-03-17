@@ -17,6 +17,7 @@ Hackscreen is a full-screen presentational webapp for hackerspaces and public/me
 * Smooth animations for maximum enjoy
 * Can run on a raspberry pi for super easy setup.
 * Party Parrots
+* Telegram integration - posts to a bot
 
 ## Data Shown
 Out of the box:
