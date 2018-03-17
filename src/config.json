@@ -1,10 +1,14 @@
 {
-  "mqtt":{
+  "mqtt": {
     "server": "mqtt://172.16.0.5"
   },
-  "socket":{
-    "server" : "localhost",
+  "socket": {
+    "server": "localhost",
     "port": 8000
+  },
+  "telegram": {
+    "chat_id": "",
+    "token": ""
   },
   "order": [
     { "name": "Welcome", "time": 10 },
@@ -16,11 +20,11 @@
     { "name": "Recent", "time": 15 },
     { "name": "Parrot", "time": 2 }
   ],
-  "notification":{
+  "notification": {
     "delay": 8000,
     "bye": "👋"
   },
-  "metrolink":{
-    "api_key":""
+  "metrolink": {
+    "api_key": ""
   }
 }

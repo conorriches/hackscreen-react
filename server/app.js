@@ -6,35 +6,79 @@ const io = require("socket.io")();
 const mqtt = require("mqtt");
 const config = require("../src/config.json");
 const https = require("https");
+const querystring = require("querystring");
 
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
+
+let notify = false;
 
 MQTTclient.on("connect", function() {
   console.log("MQTT: connected", config.mqtt.server);
   MQTTclient.subscribe("door/#");
   MQTTclient.subscribe("button/big/red/state");
+  postToTelegram("👋 connected");
   //MQTTclient.publish('presence', 'Hello mqtt')
 });
+
+const postToTelegram = message => {
+  const postData = querystring.stringify({
+    chat_id: config.telegram.chat_id,
+    text: message
+  });
+
+  const options = {
+    hostname: `api.telegram.org`,
+    port: 443,
+    path: `/bot${config.telegram.token}/sendMessage`,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Length": postData.length
+    }
+  };
+
+  const req = https.request(options, res => {
+    console.log("statusCode:", res.statusCode);
+    console.log("headers:", res.headers);
+
+    res.on("data", d => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on("error", e => {
+    console.error(e);
+  });
+
+  req.write(postData);
+  req.end();
+};
 
 io.listen(config.socket.port);
 io.on("connection", socket => {
   console.log("Client connected: ID", socket.id);
-
   // When we get a message, send to client
   MQTTclient.on("message", function(topic, message) {
     switch (topic) {
       case "door/outer/opened/username":
         socket.emit("USER_ENTERED", message.toString());
+        postToTelegram(`🔑 ${message.toString()}`);
         break;
       case "door/outer/opened/key":
         socket.emit("MANUAL_OVERRIDE", message.toString());
+        postToTelegram(`🚨 ${message.toString()}`);
+        notify = true;
         break;
       case "door/outer/state":
         socket.emit("DOOR_STATE", message.toString());
+        notify && postToTelegram(`🚪 ${message.toString()}`);
+        notify = false;
         break;
       case "door/outer/doorbell":
         socket.emit("DOORBELL", message.toString());
+        notify = true;
+        postToTelegram(`🔔 doorbell rung`);
         break;
 
       case "button/big/red/state":
@@ -121,31 +165,33 @@ io.on("connection", socket => {
 
               const json = JSON.parse(data);
 
-              json.value.forEach(i => {
-                toReturn.platforms.push({
-                  line: i.Line,
-                  direction: i.Direction,
-                  messageBoard: i.MessageBoard,
-                  trams: [
-                    {
-                      destination: i.Dest0,
-                      carriages: i.Carriages0,
-                      wait: i.Wait0
-                    },
-                    {
-                      destination: i.Dest1,
-                      carriages: i.Carriages1,
-                      wait: i.Wait1
-                    },
-                    {
-                      destination: i.Dest2,
-                      carriages: i.Carriages2,
-                      wait: i.Wait2
-                    }
-                  ]
+              if (json.value) {
+                json.value.forEach(i => {
+                  toReturn.platforms.push({
+                    line: i.Line,
+                    direction: i.Direction,
+                    messageBoard: i.MessageBoard,
+                    trams: [
+                      {
+                        destination: i.Dest0,
+                        carriages: i.Carriages0,
+                        wait: i.Wait0
+                      },
+                      {
+                        destination: i.Dest1,
+                        carriages: i.Carriages1,
+                        wait: i.Wait1
+                      },
+                      {
+                        destination: i.Dest2,
+                        carriages: i.Carriages2,
+                        wait: i.Wait2
+                      }
+                    ]
+                  });
                 });
-              });
-              socket.emit("METROLINK", toReturn);
+                socket.emit("METROLINK", toReturn);
+              }
             });
           })
           .on("error", err => {
