@@ -17,7 +17,7 @@ MQTTclient.on("connect", function() {
   console.log("MQTT: connected", config.mqtt.server);
   MQTTclient.subscribe("door/#");
   MQTTclient.subscribe("button/big/red/state");
-  postToTelegram("👋 connected on " + socket.id);
+  postToTelegram("👋 connected");
   //MQTTclient.publish('presence', 'Hello mqtt')
 });
 
@@ -58,6 +58,7 @@ const postToTelegram = message => {
 io.listen(config.socket.port);
 io.on("connection", socket => {
   console.log("Client connected: ID", socket.id);
+  postToTelegram("🔌 client loaded the hackscreen");
   // When we get a message, send to client
   MQTTclient.on("message", function(topic, message) {
     switch (topic) {
