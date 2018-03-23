@@ -162,7 +162,7 @@ class App extends Component {
         <Sound
           url="/audio/entered.ogg"
           playStatus={
-            this.state.audio.entry == 1 ? Sound.status.PLAYING : Sound.status.STOPPED
+            this.state.audio.entry === 1 ? Sound.status.PLAYING : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
@@ -173,7 +173,7 @@ class App extends Component {
         <Sound
           url="/audio/reentered.ogg"
           playStatus={
-            this.state.audio.entry == 2 ? Sound.status.PLAYING : Sound.status.STOPPED
+            this.state.audio.entry === 2 ? Sound.status.PLAYING : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
