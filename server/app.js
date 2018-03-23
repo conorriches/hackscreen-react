@@ -17,7 +17,7 @@ MQTTclient.on("connect", function() {
   console.log("MQTT: connected", config.mqtt.server);
   MQTTclient.subscribe("door/#");
   MQTTclient.subscribe("button/big/red/state");
-  postToTelegram("👋 connected");
+  postToTelegram("👋 connected on " + socket.id);
   //MQTTclient.publish('presence', 'Hello mqtt')
 });
 
@@ -82,6 +82,7 @@ io.on("connection", socket => {
         break;
 
       case "button/big/red/state":
+        postToTelegram(`🈂️`);
         var rnd = randomInt(0, 100);
         var audioCmd = "";
 
@@ -131,6 +132,10 @@ io.on("connection", socket => {
       default:
         console.log("Unknown topic", topic);
     }
+  });
+
+  socket.on('disconnect', function(){
+    postToTelegram(`😘 disconnect!`);
   });
 
   //When the client tells us the slide changed
