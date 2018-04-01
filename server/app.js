@@ -1,4 +1,4 @@
-// server/app.js
+const fs = require("fs");
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
@@ -7,6 +7,8 @@ const mqtt = require("mqtt");
 const config = require("../src/config.json");
 const https = require("https");
 const querystring = require("querystring");
+const randomEmoji = require("random-emoji");
+const ical = require("ical");
 
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
@@ -84,6 +86,11 @@ io.on("connection", socket => {
 
       case "button/big/red/state":
         postToTelegram(`🈂️`);
+
+        // Array of five random emoji
+        const re = randomEmoji.random({ count: 1 });
+        console.log(re);
+
         var rnd = randomInt(0, 100);
         var audioCmd = "";
 
@@ -135,7 +142,7 @@ io.on("connection", socket => {
     }
   });
 
-  socket.on('disconnect', function(){
+  socket.on("disconnect", function() {
     postToTelegram(`😘 disconnect!`);
   });
 
@@ -143,14 +150,26 @@ io.on("connection", socket => {
   socket.on("SLIDE_CHANGED", slideName => {
     console.log("Slide changed to ", slideName);
 
+    if (slideName === "Sportsball") {
+      fs.readFile(__dirname + config.sportsball.calendar, "utf8", function(
+        err,
+        data
+      ) {
+        if (err) {
+          console.error(err);
+        }
+
+        const cal = ical.parseICS(data);
+        socket.emit("SPORTSBALL", cal);
+      });
+    }
+
     if (slideName === "Metrolink") {
       console.log("Getting Met times");
 
       let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
         config.metrolink.api_key
       }&$filter=TLAREF eq 'NIS'`;
-
-      console.log(URL);
 
       try {
         https

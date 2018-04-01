@@ -35,7 +35,8 @@ class App extends Component {
         entry: 0,
         emergency: 0
       },
-      metrolink: {}
+      metrolink: {},
+      sportsball: {}
     };
 
     socket.on("DOOR_STATE", data => {
@@ -86,8 +87,16 @@ class App extends Component {
     });
 
     socket.on("METROLINK", data => {
+      console.log("Got met");
       this.setState({metrolink:data});
     });
+
+    socket.on("SPORTSBALL", data => {
+      console.log("Got data")
+      console.log(data);
+      this.setState({sportsball:data});
+    });
+
   }
 
   setNotification(data) {

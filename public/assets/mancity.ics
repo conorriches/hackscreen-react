@@ -1,0 +1,1088 @@
+BEGIN:VCALENDAR
+NAME:Manchester City Fixtures - Manchester City Mens
+X-WR-CALNAME:Manchester City Fixtures - Manchester City Mens
+VERSION:2.0
+PRODID:-//Stanza //Stanza Calendar v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Brighton and Hove Albion - Manchester City
+END:VALARM
+DTSTART:20170812T163000Z
+DTEND:20170812T190000Z
+UID:-ahNBKUDVpGPMA9iKxZyaPdI@stanza.co
+SUMMARY:Brighton and Hove Albion - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Amex Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Rotherham United - Manchester City U21
+END:VALARM
+DTSTART:20170815T180000Z
+DTEND:20170815T203000Z
+UID:XRBMYLJpXENwmHKVHztmCAof@stanza.co
+SUMMARY:Rotherham United - Manchester City U21
+DESCRIPTION:Checkatrade Trophy\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:AESSEAL New York Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Everton
+END:VALARM
+DTSTART:20170821T190000Z
+DTEND:20170821T213000Z
+UID:6W5u7ov6mQb3ZGKjG0h1ysm1@stanza.co
+SUMMARY:Manchester City - Everton
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bournemouth - Manchester City
+END:VALARM
+DTSTART:20170826T113000Z
+DTEND:20170826T140000Z
+UID:FRu1D3XsJHXjfB3JKobWowLK@stanza.co
+SUMMARY:Bournemouth - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Vitality Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Liverpool
+END:VALARM
+DTSTART:20170909T113000Z
+DTEND:20170909T140000Z
+UID:Pc-RhPeNFu770n-pHr-VD9CZ@stanza.co
+SUMMARY:Manchester City - Liverpool
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Feyenoord - Manchester City
+END:VALARM
+DTSTART:20170913T184500Z
+DTEND:20170913T211500Z
+UID:FO98Y9WIp4nJmuS6b-LQg8QS@stanza.co
+SUMMARY:Feyenoord - Manchester City
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:De Kuip
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Watford - Manchester City
+END:VALARM
+DTSTART:20170916T140000Z
+DTEND:20170916T163000Z
+UID:FeDrqMwvKxwHZ4ZNQ62HXckZ@stanza.co
+SUMMARY:Watford - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Vicarage Road
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:West Bromwich Albion - Manchester City
+END:VALARM
+DTSTART:20170920T190000Z
+DTEND:20170920T213000Z
+UID:1rPeOWeK-xTkkwuOMgBqu4C7@stanza.co
+SUMMARY:West Bromwich Albion - Manchester City
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:The Hawthorns
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Crystal Palace
+END:VALARM
+DTSTART:20170923T140000Z
+DTEND:20170923T163000Z
+UID:s9zc_bsXgK-z90GNV-vgVecu@stanza.co
+SUMMARY:Manchester City - Crystal Palace
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Shakhtar Donetsk
+END:VALARM
+DTSTART:20170926T184500Z
+DTEND:20170926T211500Z
+UID:8m6R95YPzo660HNQo3-KDrIL@stanza.co
+SUMMARY:Manchester City - Shakhtar Donetsk
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Chelsea - Manchester City
+END:VALARM
+DTSTART:20170930T163000Z
+DTEND:20170930T190000Z
+UID:evpyTxxDEZ2B8zDTsKVN0hCL@stanza.co
+SUMMARY:Chelsea - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Stamford Bridge
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Stoke City
+END:VALARM
+DTSTART:20171014T140000Z
+DTEND:20171014T163000Z
+UID:HKc580zL4mATkrZaBMyl-PAv@stanza.co
+SUMMARY:Manchester City - Stoke City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Napoli
+END:VALARM
+DTSTART:20171017T184500Z
+DTEND:20171017T211500Z
+UID:mU-30UydzkXhmG4oUb7J9BCw@stanza.co
+SUMMARY:Manchester City - Napoli
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Burnley
+END:VALARM
+DTSTART:20171021T140000Z
+DTEND:20171021T163000Z
+UID:KKoRofGvLSK8r3LZZ5C4Nlua@stanza.co
+SUMMARY:Manchester City - Burnley
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bradford City - Manchester City U21
+END:VALARM
+DTSTART:20171024T183000Z
+DTEND:20171024T210000Z
+UID:FU2l3sSfKTkQb4DfmlSNVn2p@stanza.co
+SUMMARY:Bradford City - Manchester City U21
+DESCRIPTION:Checkatrade Trophy\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Northern Commercials Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Wolverhampton Wanderers
+END:VALARM
+DTSTART:20171024T190000Z
+DTEND:20171024T213000Z
+UID:DII_FQaG_02oToHWnDs6V6hI@stanza.co
+SUMMARY:Manchester City - Wolverhampton Wanderers
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:West Bromwich Albion - Manchester City
+END:VALARM
+DTSTART:20171028T140000Z
+DTEND:20171028T163000Z
+UID:0-Vzjutgd4frdd2Wgm6fzaoi@stanza.co
+SUMMARY:West Bromwich Albion - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:The Hawthorns
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Napoli - Manchester City
+END:VALARM
+DTSTART:20171101T194500Z
+DTEND:20171101T221500Z
+UID:VvaTRIJw3eMSB0rKpncW5p_M@stanza.co
+SUMMARY:Napoli - Manchester City
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:San Paolo
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Arsenal
+END:VALARM
+DTSTART:20171105T141500Z
+DTEND:20171105T164500Z
+UID:RcJ9oh4Scm4Sx9OIZcsoFFqA@stanza.co
+SUMMARY:Manchester City - Arsenal
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Leicester City - Manchester City
+END:VALARM
+DTSTART:20171118T150000Z
+DTEND:20171118T173000Z
+UID:2hWluGnefV_dnOyTYO-p9rrU@stanza.co
+SUMMARY:Leicester City - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:King Power Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Feyenoord
+END:VALARM
+DTSTART:20171121T194500Z
+DTEND:20171121T221500Z
+UID:Dd-9B9tj_FVOtFH4DjZIq4oV@stanza.co
+SUMMARY:Manchester City - Feyenoord
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Huddersfield Town - Manchester City
+END:VALARM
+DTSTART:20171126T160000Z
+DTEND:20171126T183000Z
+UID:8wtScqeumKI0xFmJmzpN4lmD@stanza.co
+SUMMARY:Huddersfield Town - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:John Smith's Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Chesterfield - Manchester City U21
+END:VALARM
+DTSTART:20171129T190000Z
+DTEND:20171129T213000Z
+UID:QJCpCbHfp4UbLpjBRCqMHYL_@stanza.co
+SUMMARY:Chesterfield - Manchester City U21
+DESCRIPTION:Checkatrade Trophy\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Proact Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Southampton
+END:VALARM
+DTSTART:20171129T200000Z
+DTEND:20171129T223000Z
+UID:MwhO_mKin_EEnW7zgIEzK8cK@stanza.co
+SUMMARY:Manchester City - Southampton
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - West Ham United
+END:VALARM
+DTSTART:20171203T160000Z
+DTEND:20171203T183000Z
+UID:MmkwPqmtfmi44rqHl8i2ZqWC@stanza.co
+SUMMARY:Manchester City - West Ham United
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Shakhtar Donetsk - Manchester City
+END:VALARM
+DTSTART:20171206T194500Z
+DTEND:20171206T221500Z
+UID:d9KjTPu4sfFpmX9lSSlyPaEc@stanza.co
+SUMMARY:Shakhtar Donetsk - Manchester City
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Metalist Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester United - Manchester City
+END:VALARM
+DTSTART:20171210T163000Z
+DTEND:20171210T190000Z
+UID:9xWUvbrRM7rN4m_3Q3Fc7F7d@stanza.co
+SUMMARY:Manchester United - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Old Trafford
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Swansea City - Manchester City
+END:VALARM
+DTSTART:20171213T194500Z
+DTEND:20171213T221500Z
+UID:9yl7jA4eRF_NkKdVrtaV4mIr@stanza.co
+SUMMARY:Swansea City - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Liberty Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Tottenham Hotspur
+END:VALARM
+DTSTART:20171216T173000Z
+DTEND:20171216T200000Z
+UID:Hybo8oSxflvOqhd7Ecic_xtg@stanza.co
+SUMMARY:Manchester City - Tottenham Hotspur
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Leicester City - Manchester City
+END:VALARM
+DTSTART:20171219T194500Z
+DTEND:20171219T221500Z
+UID:tDkqTqX7ex9ivRBB3NW_MpAm@stanza.co
+SUMMARY:Leicester City - Manchester City
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:King Power Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Bournemouth
+END:VALARM
+DTSTART:20171223T150000Z
+DTEND:20171223T173000Z
+UID:RuCoVfaR-f9JYmBRfcCQKKSx@stanza.co
+SUMMARY:Manchester City - Bournemouth
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Newcastle United - Manchester City
+END:VALARM
+DTSTART:20171227T194500Z
+DTEND:20171227T221500Z
+UID:AGaNklug7Bkz0wSqNmINbemc@stanza.co
+SUMMARY:Newcastle United - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:St. James' Park
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Crystal Palace - Manchester City
+END:VALARM
+DTSTART:20171231T120000Z
+DTEND:20171231T143000Z
+UID:AQNAyacBvZ1mx00DLak066pp@stanza.co
+SUMMARY:Crystal Palace - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Selhurst Park
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Watford
+END:VALARM
+DTSTART:20180102T200000Z
+DTEND:20180102T223000Z
+UID:ytaNeyU7Ey80LkpevbGZDQ7Y@stanza.co
+SUMMARY:Manchester City - Watford
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Burnley
+END:VALARM
+DTSTART:20180106T150000Z
+DTEND:20180106T173000Z
+UID:_I5IJZ1o8gKkfSTibEyt_mXF@stanza.co
+SUMMARY:Manchester City - Burnley
+DESCRIPTION:FA Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Bristol City
+END:VALARM
+DTSTART:20180109T194500Z
+DTEND:20180109T221500Z
+UID:oyro5EiiVVTpS4s8IUo9-ukn@stanza.co
+SUMMARY:Manchester City - Bristol City
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Liverpool - Manchester City
+END:VALARM
+DTSTART:20180114T160000Z
+DTEND:20180114T183000Z
+UID:AZmY61IWhZuPuyRzuuzDTcEK@stanza.co
+SUMMARY:Liverpool - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Anfield
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Newcastle United
+END:VALARM
+DTSTART:20180120T173000Z
+DTEND:20180120T200000Z
+UID:jIZ8SgBKR98nxKbcoumxVuUT@stanza.co
+SUMMARY:Manchester City - Newcastle United
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Bristol City - Manchester City
+END:VALARM
+DTSTART:20180123T194500Z
+DTEND:20180123T221500Z
+UID:7mzZQ52tFY9mH9FGMQwWM44M@stanza.co
+SUMMARY:Bristol City - Manchester City
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Ashton Gate
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Cardiff City - Manchester City
+END:VALARM
+DTSTART:20180128T160000Z
+DTEND:20180128T183000Z
+UID:1S-B5QeCRPdoTDhsgKDICjFa@stanza.co
+SUMMARY:Cardiff City - Manchester City
+DESCRIPTION:FA Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Cardiff City Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - West Bromwich Albion
+END:VALARM
+DTSTART:20180131T200000Z
+DTEND:20180131T223000Z
+UID:nWbBXH1edhOCN9fx_q5kLxgU@stanza.co
+SUMMARY:Manchester City - West Bromwich Albion
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Burnley - Manchester City
+END:VALARM
+DTSTART:20180203T123000Z
+DTEND:20180203T150000Z
+UID:Lo4HD62s-UCfalYr0uUyGOTZ@stanza.co
+SUMMARY:Burnley - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Turf Moor
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Leicester City
+END:VALARM
+DTSTART:20180210T173000Z
+DTEND:20180210T200000Z
+UID:9USEpE_SsC868n8Uek3BZlPr@stanza.co
+SUMMARY:Manchester City - Leicester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Basel - Manchester City
+END:VALARM
+DTSTART:20180213T194500Z
+DTEND:20180213T221500Z
+UID:syk-jJpFkjryzXaxLUQaSmfN@stanza.co
+SUMMARY:Basel - Manchester City
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:St Jakob-Park
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Wigan Athletic - Manchester City
+END:VALARM
+DTSTART:20180219T195500Z
+DTEND:20180219T222500Z
+UID:4vPZFF4OO5hNliL9l7BR2ZDv@stanza.co
+SUMMARY:Wigan Athletic - Manchester City
+DESCRIPTION:FA Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:DW Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Arsenal - Manchester City
+END:VALARM
+DTSTART:20180225T163000Z
+DTEND:20180225T190000Z
+UID:W5eUjWmAsgTNiME8ko4hKuKB@stanza.co
+SUMMARY:Arsenal - Manchester City
+DESCRIPTION:Carabao Cup\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Wembley Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Arsenal - Manchester City
+END:VALARM
+DTSTART:20180301T194500Z
+DTEND:20180301T221500Z
+UID:eRNM4SfMn5vIctMLRhIFKcDC@stanza.co
+SUMMARY:Arsenal - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Emirates Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Chelsea
+END:VALARM
+DTSTART:20180304T160000Z
+DTEND:20180304T183000Z
+UID:gMSQs3KXSC327MnqFsW60uMT@stanza.co
+SUMMARY:Manchester City - Chelsea
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Basel
+END:VALARM
+DTSTART:20180307T194500Z
+DTEND:20180307T221500Z
+UID:2Mz8v2gqD7d8qG0o1_2x1r3p@stanza.co
+SUMMARY:Manchester City - Basel
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Stoke City - Manchester City
+END:VALARM
+DTSTART:20180312T200000Z
+DTEND:20180312T223000Z
+UID:fd7QmoS2hxuUG52RaASSnlJv@stanza.co
+SUMMARY:Stoke City - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:bet365 Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Brighton and Hove Albion
+END:VALARM
+DTSTART:20180318T160000Z
+DTEND:20180318T183000Z
+UID:A8iFDioNbuf6P2ecp7n9BeoJ@stanza.co
+SUMMARY:Manchester City - Brighton and Hove Albion
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Everton - Manchester City
+END:VALARM
+DTSTART:20180331T163000Z
+DTEND:20180331T190000Z
+UID:g3Pz61ovu2F4CuYdqssVe0WF@stanza.co
+SUMMARY:Everton - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Goodison Park
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Liverpool - Manchester City
+END:VALARM
+DTSTART:20180404T184500Z
+DTEND:20180404T211500Z
+UID:wCbIusEU_Y78anIy-_I7ibKu@stanza.co
+SUMMARY:Liverpool - Manchester City
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Anfield
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Manchester United
+END:VALARM
+DTSTART:20180407T163000Z
+DTEND:20180407T190000Z
+UID:Vio5f2YlXCv7sPAwphZRVMBa@stanza.co
+SUMMARY:Manchester City - Manchester United
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Liverpool
+END:VALARM
+DTSTART:20180410T184500Z
+DTEND:20180410T211500Z
+UID:hIyQercXJYxJEC6wMr8dj0Xa@stanza.co
+SUMMARY:Manchester City - Liverpool
+DESCRIPTION:UEFA Champions League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Tottenham Hotspur - Manchester City
+END:VALARM
+DTSTART:20180414T184500Z
+DTEND:20180414T211500Z
+UID:uTW45R9VHa8fdPwxhQkE-Hsw@stanza.co
+SUMMARY:Tottenham Hotspur - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Wembley Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Swansea City
+END:VALARM
+DTSTART:20180422T153000Z
+DTEND:20180422T180000Z
+UID:5fTB2aPrw2uqdorNRvGvjIys@stanza.co
+SUMMARY:Manchester City - Swansea City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:West Ham United - Manchester City
+END:VALARM
+DTSTART:20180429T131500Z
+DTEND:20180429T154500Z
+UID:Ju3tc4cD9Lj8Piclw71-pnon@stanza.co
+SUMMARY:West Ham United - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:London Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Manchester City - Huddersfield Town
+END:VALARM
+DTSTART:20180505T140000Z
+DTEND:20180505T163000Z
+UID:bQZS0rFO6k5zbtzpjwnddaVG@stanza.co
+SUMMARY:Manchester City - Huddersfield Town
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:Etihad Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Southampton - Manchester City
+END:VALARM
+DTSTART:20180513T140000Z
+DTEND:20180513T163000Z
+UID:n-XLUOorR1c0Vxri52MCOF6_@stanza.co
+SUMMARY:Southampton - Manchester City
+DESCRIPTION:Premier League\n\n\n\nSynced via Stanza - create your own live updating calendar (https://stanza.co?events)\n\nFor questions, check out our FAQs page: https://stanza.co/faqs
+LOCATION:St. Mary's Stadium
+STATUS:CONFIRMED
+DTSTAMP:20180325T005337Z
+CREATED:20180325T005337Z
+LAST-MODIFIED:20180325T005337Z
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
