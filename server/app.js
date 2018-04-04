@@ -72,8 +72,13 @@ const postToTelegram = (message, message_id, callback) => {
   req.end();
 };
 
+const theClient = false;
+
 io.listen(config.socket.port);
 io.on("connection", socket => {
+  if(theClient) return;
+  theClient = socket.id;
+  
   console.log("Client connected: ID", socket.id);
   postToTelegram("🔌 client loaded the hackscreen");
   // When we get a message, send to client
