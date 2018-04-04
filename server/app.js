@@ -82,19 +82,21 @@ io.on("connection", socket => {
       case "door/outer/opened/username":
         socket.emit("USER_ENTERED", message.toString());
         const justEntered = message.toString();
+        const now = new Date();
+        const niceDate = now.toLocaleTimeString();
+
         if (justEntered !== latestUser) {
           // New person entered
-          lastMessage = `🔑 ${justEntered}`;
+          latestUser = justEntered;
+          lastMessage = `🔑 ${justEntered} (${niceDate})`;
           postToTelegram(lastMessage, false, id => {
             lastMessageId = id;
           });
         } else {
           //Update last message
-          const now = new Date();
-          lastMessage = `${lastMessage} (${now.toLocaleTimeString()})`;
-          postToTelegram(lastMessage, lastMessageId);
+          lastMessage = `${lastMessage} (${niceDate})`;
+          postToTelegram(lastMessage, lastMessageId, () => {});
         }
-        latestUser = justEntered;
         break;
       case "door/outer/opened/key":
         socket.emit("MANUAL_OVERRIDE", message.toString());
