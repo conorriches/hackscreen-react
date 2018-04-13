@@ -119,7 +119,7 @@ io.on("connection", socket => {
 
       case "button/big/red/state":
         postToTelegram(`🈂️`);
-        var rnd = randomInt(0, 100);
+        var rnd = Math.floor(Math.random() * 100)
         var audioCmd = "";
 
         //decide what annoyance we want
