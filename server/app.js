@@ -7,7 +7,6 @@ const mqtt = require("mqtt");
 const config = require("../src/config.json");
 const https = require("https");
 const querystring = require("querystring");
-const randomEmoji = require("random-emoji");
 const ical = require("ical");
 
 const app = express();
@@ -86,10 +85,6 @@ io.on("connection", socket => {
 
       case "button/big/red/state":
         postToTelegram(`🈂️`);
-
-        // Array of five random emoji
-        const re = randomEmoji.random({ count: 1 });
-        console.log(re);
 
         var rnd = randomInt(0, 100);
         var audioCmd = "";
