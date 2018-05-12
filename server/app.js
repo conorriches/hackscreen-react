@@ -151,16 +151,8 @@ io.on("connection", socket => {
     console.log("Slide changed to ", slideName);
 
     if (slideName === "Sportsball") {
-      fs.readFile(__dirname + config.sportsball.calendar, "utf8", function(
-        err,
-        data
-      ) {
-        if (err) {
-          console.error(err);
-        }
-
-        const cal = ical.parseICS(data);
-        socket.emit("SPORTSBALL", cal);
+      const cal = ical.fromURL(config.sportsball.calendar, {}, (err, data) => {
+        socket.emit("SPORTSBALL", data);
       });
     }
 
@@ -235,7 +227,7 @@ app.use(
 );
 
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, "..", "build")));
+//app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 // Always return the main index.html, so react-router render the route in the client
 app.get("*", (req, res) => {

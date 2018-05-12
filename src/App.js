@@ -61,24 +61,22 @@ class App extends Component {
       };
       //If we hav already seen the user, remove their last position
       const count = this.state.lastEntered.filter(n => {
-        console.log(n);
         return n.name === data;
       }).length;
-      if (count > 0){
+      if (count > 0) {
         this.setState({
           lastEntered: this.state.lastEntered.filter(item => {
             return item.name !== data;
           })
         });
         this.setState({ audio: { entry: 2 } });
-      }else{
+      } else {
         this.setState({ audio: { entry: 1 } });
       }
 
       this.setState({
         lastEntered: this.state.lastEntered.slice(-5).concat(userData)
       });
-
     });
 
     socket.on("DOORBELL", data => {
@@ -88,15 +86,13 @@ class App extends Component {
 
     socket.on("METROLINK", data => {
       console.log("Got met");
-      this.setState({metrolink:data});
+      this.setState({ metrolink: data });
     });
 
     socket.on("SPORTSBALL", data => {
-      console.log("Got data")
-      console.log(data);
-      this.setState({sportsball:data});
+      console.log("Got sportsball");
+      this.setState({ sportsball: data });
     });
-
   }
 
   setNotification(data) {
@@ -171,7 +167,9 @@ class App extends Component {
         <Sound
           url="/audio/entered.ogg"
           playStatus={
-            this.state.audio.entry === 1 ? Sound.status.PLAYING : Sound.status.STOPPED
+            this.state.audio.entry === 1
+              ? Sound.status.PLAYING
+              : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
@@ -182,7 +180,9 @@ class App extends Component {
         <Sound
           url="/audio/reentered.ogg"
           playStatus={
-            this.state.audio.entry === 2 ? Sound.status.PLAYING : Sound.status.STOPPED
+            this.state.audio.entry === 2
+              ? Sound.status.PLAYING
+              : Sound.status.STOPPED
           }
           playFromPosition={0}
           onFinishedPlaying={() => {
@@ -219,7 +219,7 @@ class App extends Component {
 
         <div className="footer">
           <Logo />
-          <Time className="footer__time"/>
+          <Time className="footer__time" />
           <Status
             className="doorbell"
             condition={this.state.doorbell}
