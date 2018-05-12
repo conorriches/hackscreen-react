@@ -6,7 +6,7 @@ class MMMM extends Component {
       <div>
         <h2>MMMM!</h2>
         <h2>Monthly Monday Member Meeting</h2>
-        <h3>4th Monday/month @ 7pm</h3>
+        <h3><b>1st</b> Monday/month @ 7pm</h3>
         <h4>Everyone welcome</h4>
         <small>no bikeshedding</small>
       </div>

@@ -13,6 +13,9 @@ const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
 
 let notify = false;
+let latestUser = "";
+let lastMessageId = 0;
+let lastMessage = "";
 
 MQTTclient.on("connect", function() {
   console.log("MQTT: connected", config.mqtt.server);
@@ -22,16 +25,19 @@ MQTTclient.on("connect", function() {
   //MQTTclient.publish('presence', 'Hello mqtt')
 });
 
-const postToTelegram = message => {
+const postToTelegram = (message, message_id, callback) => {
   const postData = querystring.stringify({
     chat_id: config.telegram.chat_id,
+    message_id,
     text: message
   });
 
   const options = {
     hostname: `api.telegram.org`,
     port: 443,
-    path: `/bot${config.telegram.token}/sendMessage`,
+    path: `/bot${config.telegram.token}/${
+      message_id ? "editMessageText" : "sendMessage"
+    }`,
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -42,9 +48,20 @@ const postToTelegram = message => {
   const req = https.request(options, res => {
     console.log("statusCode:", res.statusCode);
     console.log("headers:", res.headers);
+    let body = "";
 
     res.on("data", d => {
-      process.stdout.write(d);
+      body += d;
+    });
+
+    res.on("end", function() {
+      // Data reception is done, do whatever with it!
+      var parsed = JSON.parse(body);
+
+      if (parsed && parsed.ok) {
+        console.log(parsed);
+        callback && callback(parsed.result.message_id);
+      }
     });
   });
 
@@ -56,8 +73,11 @@ const postToTelegram = message => {
   req.end();
 };
 
+let theClient = false;
 io.listen(config.socket.port);
 io.on("connection", socket => {
+  theClient = socket.id;
+  
   console.log("Client connected: ID", socket.id);
   postToTelegram("🔌 client loaded the hackscreen");
   // When we get a message, send to client
@@ -65,7 +85,22 @@ io.on("connection", socket => {
     switch (topic) {
       case "door/outer/opened/username":
         socket.emit("USER_ENTERED", message.toString());
-        postToTelegram(`🔑 ${message.toString()}`);
+        const justEntered = message.toString();
+        const now = new Date();
+        const niceDate = now.toLocaleTimeString();
+
+        if (justEntered !== latestUser) {
+          // New person entered
+          latestUser = justEntered;
+          lastMessage = `🔑 ${justEntered} (${niceDate})`;
+          postToTelegram(lastMessage, false, id => {
+            lastMessageId = id;
+          });
+        } else {
+          //Update last message
+          lastMessage = `${lastMessage} (${niceDate})`;
+          postToTelegram(lastMessage, lastMessageId, () => {});
+        }
         break;
       case "door/outer/opened/key":
         socket.emit("MANUAL_OVERRIDE", message.toString());
@@ -85,8 +120,7 @@ io.on("connection", socket => {
 
       case "button/big/red/state":
         postToTelegram(`🈂️`);
-
-        var rnd = randomInt(0, 100);
+        var rnd = Math.floor(Math.random() * 100)
         var audioCmd = "";
 
         //decide what annoyance we want
@@ -139,6 +173,7 @@ io.on("connection", socket => {
 
   socket.on("disconnect", function() {
     postToTelegram(`😘 disconnect!`);
+    socket.disconnect();
   });
 
   //When the client tells us the slide changed
