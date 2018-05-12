@@ -26,7 +26,6 @@ class Sportsball extends Component {
         })
         .slice(0, 3);
 
-      console.log(upcoming);
       this.setState({ data: upcoming });
       this.setState({ loaded: true });
     }

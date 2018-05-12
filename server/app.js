@@ -222,7 +222,7 @@ app.use(
 );
 
 // Serve static assets
-//app.use(express.static(path.resolve(__dirname, "..", "build")));
+app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 // Always return the main index.html, so react-router render the route in the client
 app.get("*", (req, res) => {
