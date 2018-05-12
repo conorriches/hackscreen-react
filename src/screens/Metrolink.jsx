@@ -9,9 +9,11 @@ class Metrolink extends Component {
   }
 
   componentDidUpdate(p) {
-    console.log(p);
     if (this.props.parentState.metrolink.platforms && this.state.gotData === 1)
       return;
+
+    if(!p.parentState.metrolink.platforms && !this.state.gotData) return;
+
     this.props.parentState.metrolink.platforms
       ? this.setState({ gotData: 1 })
       : this.setState({ gotData: 0 });

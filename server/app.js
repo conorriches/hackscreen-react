@@ -1,4 +1,4 @@
-// server/app.js
+const fs = require("fs");
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
@@ -7,6 +7,7 @@ const mqtt = require("mqtt");
 const config = require("../src/config.json");
 const https = require("https");
 const querystring = require("querystring");
+const ical = require("ical");
 
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
@@ -179,14 +180,18 @@ io.on("connection", socket => {
   socket.on("SLIDE_CHANGED", slideName => {
     console.log("Slide changed to ", slideName);
 
+    if (slideName === "Sportsball") {
+      const cal = ical.fromURL(config.sportsball.calendar, {}, (err, data) => {
+        socket.emit("SPORTSBALL", data);
+      });
+    }
+
     if (slideName === "Metrolink") {
       console.log("Getting Met times");
 
       let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
         config.metrolink.api_key
       }&$filter=TLAREF eq 'NIS'`;
-
-      console.log(URL);
 
       try {
         https

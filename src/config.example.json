@@ -1,0 +1,31 @@
+{
+    "mqtt": {
+      "server": ""
+    },
+    "socket": {
+      "server": "localhost",
+      "port": 8000
+    },
+    "telegram": {
+      "chat_id": "",
+      "token": ""
+    },
+    "order": [
+      { "name": "Welcome", "time": 10 },
+      { "name": "WiFi", "time": 10 },
+      { "name": "MMMM", "time": 15 },
+      { "name": "Time", "time": 10 },
+      { "name": "Food", "time": 10 },
+      { "name": "Recent", "time": 15 },
+      { "name": "Parrot", "time": 2 },
+      { "name": "Metrolink", "time": 30 }
+    ],
+    "notification": {
+      "delay": 10000,
+      "bye": "👋"
+    },
+    "metrolink": {
+      "api_key": ""
+    }
+  }
+  

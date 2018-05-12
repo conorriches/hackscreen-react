@@ -10,7 +10,7 @@
 * 3. Use the build-css or watch-css scripts to transpice to CSS.
 */
 .Welcome {
-  font-family: 'Archivo';
+  font-family: "Archivo";
   background: #1c92d2;
   background: linear-gradient(to right, #f2fcfe, #1c92d2);
   color: black; }
@@ -26,7 +26,7 @@
   color: black; }
   .WiFi h3 {
     font-size: 6rem;
-    font-family: 'Titillium Web'; }
+    font-family: "Titillium Web"; }
 
 .Food {
   background: #fe8c00;
@@ -99,3 +99,19 @@
     font-size: 2rem;
     margin: 10px;
     padding: 10px; }
+
+.Sportsball {
+  background: #99c6e8;
+  color: black; }
+  .Sportsball__fixture {
+    background: black;
+    color: white; }
+    .Sportsball__fixture:first-of-type {
+      border: 1px solid red;
+      margin-bottom: 30px;
+      font-size: 80px; }
+  .Sportsball__time {
+    background: red;
+    color: black;
+    float: left;
+    width: 450px; }

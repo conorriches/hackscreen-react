@@ -10,9 +10,6 @@ class EmergencyNotice extends Component {
 
   componentWillReceiveProps(d) {
     if (d.emergency === this.props.emergency) return;
-
-    console.log("GOT PROPS FUCKO")
-
     const now = new Date();
     this.setState({ updated: now.toUTCString() });
   }
