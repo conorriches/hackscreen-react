@@ -1,4 +1,5 @@
 export {default as Food} from './Food'
+export {default as Heck} from './Heck'
 export {default as Metrolink} from './Metrolink'
 export {default as MMMM} from './MMMM'
 export {default as Parrot} from './Parrot'
