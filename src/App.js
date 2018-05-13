@@ -17,6 +17,7 @@ import Config from "./config.json";
 import { clearTimeout } from "timers";
 
 const socket = openSocket(`${Config.socket.server}:${Config.socket.port}`);
+const timeout = 0;
 
 class App extends Component {
   constructor(props) {
@@ -88,6 +89,15 @@ class App extends Component {
       this.setState({ metrolink: data });
     });
 
+    socket.on("NEXT_SLIDE", data => {
+      //Cancel the timer
+      clearTimeout(timeout);
+
+      //Move to next slide
+      this.setState({ index: this.getNextIndex() });
+      this.show();
+    });
+
     socket.on("SPORTSBALL", data => {
       this.setState({ sportsball: data });
     });
@@ -136,7 +146,7 @@ class App extends Component {
         index: this.state.index,
         hide: 0
       });
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         this.setState({ index: this.getNextIndex() });
 
         this.show();
