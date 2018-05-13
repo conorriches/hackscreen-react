@@ -82,7 +82,9 @@ io.on("connection", socket => {
         notify = true;
         postToTelegram(`🔔 doorbell rung`);
         break;
-
+      case "button/small/green":
+        socket.emit("NEXT_SLIDE", "");
+        break;
       case "button/big/red/state":
         postToTelegram(`🈂️`);
 
