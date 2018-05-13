@@ -17,7 +17,7 @@ import Config from "./config.json";
 import { clearTimeout } from "timers";
 
 const socket = openSocket(`${Config.socket.server}:${Config.socket.port}`);
-const timeout = 0;
+let timeout = 0;
 
 class App extends Component {
   constructor(props) {
