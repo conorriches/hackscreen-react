@@ -1,4 +1,5 @@
 const fs = require("fs");
+const exec = require('exec');
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
@@ -10,12 +11,11 @@ const querystring = require("querystring");
 const ical = require("ical");
 const find = require('local-devices');
 
-
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
 let netDevices = [];
 const ourDevices = [
-  '50:f5:da:e3:8c:b9'
+  '50:f5:da:e3:8c:b9 [ether]'
 ];
 let alertFlag = 0;
 
