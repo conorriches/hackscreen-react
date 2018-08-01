@@ -8,22 +8,56 @@ const config = require("../src/config.json");
 const https = require("https");
 const querystring = require("querystring");
 const ical = require("ical");
+const find = require('local-devices');
+
 
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
+let netDevices = [];
+const ourDevices = [
+  '50:f5:da:e3:8c:b9'
+];
+let alertFlag = 0;
 
 let notify = false;
 let latestUser = "";
 let lastMessageId = 0;
 let lastMessage = "";
-
-MQTTclient.on("connect", function() {
+MQTTclient.on("connect", function () {
   console.log("MQTT: connected", config.mqtt.server);
   MQTTclient.subscribe("door/#");
-  MQTTclient.subscribe("button/big/red/state");
+  MQTTclient.subscribe("button/#");
   postToTelegram("👋 connected");
   //MQTTclient.publish('presence', 'Hello mqtt')
 });
+
+const getNetworkDevices = () => {
+  // Find all local network devices.
+  find().then(devices => {
+    netDevices = devices.map(d => d.mac);
+    let importantDevices = (netDevices.filter(d => {
+      return ourDevices.indexOf(d) >= 0
+    }));
+
+    if(importantDevices.length > 0 && alertFlag == 0){
+      alertFlag = 1;
+      postToTelegram(`🆕 dash button pushed - rick roll commenced!`);
+      exec('ogg123 ~/hackscreen-react/public/audio/giveyouup.mp3', function puts(error, stdout, stderr) { });
+    }
+
+    if(importantDevices.length == 0 ){
+      alertFlag = 0;
+      console.log("reset");
+    }else{
+      console.log("Device online!!");
+      console.log(importantDevices[0]);
+    }
+
+    setTimeout(() => { getNetworkDevices() }, 5000);
+  })
+};
+
+getNetworkDevices();
 
 const postToTelegram = (message, message_id, callback) => {
   const postData = querystring.stringify({
@@ -37,7 +71,7 @@ const postToTelegram = (message, message_id, callback) => {
     port: 443,
     path: `/bot${config.telegram.token}/${
       message_id ? "editMessageText" : "sendMessage"
-    }`,
+      }`,
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -54,7 +88,7 @@ const postToTelegram = (message, message_id, callback) => {
       body += d;
     });
 
-    res.on("end", function() {
+    res.on("end", function () {
       // Data reception is done, do whatever with it!
       var parsed = JSON.parse(body);
 
@@ -77,11 +111,11 @@ let theClient = false;
 io.listen(config.socket.port);
 io.on("connection", socket => {
   theClient = socket.id;
-  
+
   console.log("Client connected: ID", socket.id);
   postToTelegram("🔌 client loaded the hackscreen");
   // When we get a message, send to client
-  MQTTclient.on("message", function(topic, message) {
+  MQTTclient.on("message", function (topic, message) {
     switch (topic) {
       case "door/outer/opened/username":
         socket.emit("USER_ENTERED", message.toString());
@@ -99,7 +133,7 @@ io.on("connection", socket => {
         } else {
           //Update last message
           lastMessage = `${lastMessage} (${niceDate})`;
-          postToTelegram(lastMessage, lastMessageId, () => {});
+          postToTelegram(lastMessage, lastMessageId, () => { });
         }
         break;
       case "door/outer/opened/key":
@@ -166,14 +200,14 @@ io.on("connection", socket => {
         }
 
         //play the annoyance
-        exec(audioCmd, function puts(error, stdout, stderr) {});
+        exec(audioCmd, function puts(error, stdout, stderr) { });
 
       default:
         console.log("Unknown topic", topic);
     }
   });
 
-  socket.on("disconnect", function() {
+  socket.on("disconnect", function () {
     postToTelegram(`😘 disconnect!`);
     socket.disconnect();
   });
@@ -193,7 +227,7 @@ io.on("connection", socket => {
 
       let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
         config.metrolink.api_key
-      }&$filter=TLAREF eq 'NIS'`;
+        }&$filter=TLAREF eq 'NIS'`;
 
       try {
         https
@@ -246,7 +280,7 @@ io.on("connection", socket => {
           .on("error", err => {
             console.log("Error: " + err.message);
           });
-      } catch (e) {}
+      } catch (e) { }
     }
   });
 });
