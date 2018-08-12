@@ -1,63 +1,123 @@
-const fs = require("fs");
+
 const exec = require('exec');
 const express = require("express");
-const morgan = require("morgan");
-const path = require("path");
-const io = require("socket.io")();
-const mqtt = require("mqtt");
-const config = require("../src/config.json");
 const https = require("https");
-const querystring = require("querystring");
 const ical = require("ical");
-const find = require('local-devices');
+const io = require("socket.io")();
+const morgan = require("morgan");
+const mqtt = require("mqtt");
+const path = require("path");
+const querystring = require("querystring");
+const config = require("../src/config.json");
+const devices = require("./devices");
 
 const app = express();
 const MQTTclient = mqtt.connect(config.mqtt.server);
-let netDevices = [];
-const ourDevices = [
-  '50:f5:da:e3:8c:b9 [ether]'
-];
-let alertFlag = 0;
 
 let notify = false;
 let latestUser = "";
 let lastMessageId = 0;
 let lastMessage = "";
-MQTTclient.on("connect", function () {
-  console.log("MQTT: connected", config.mqtt.server);
+
+
+const mqttConnect = () => {
   MQTTclient.subscribe("door/#");
   MQTTclient.subscribe("button/#");
   postToTelegram("👋 connected");
-  //MQTTclient.publish('presence', 'Hello mqtt')
-});
+}
 
-const getNetworkDevices = () => {
-  // Find all local network devices.
-  find().then(devices => {
-    netDevices = devices.map(d => d.mac);
-    let importantDevices = (netDevices.filter(d => {
-      return ourDevices.indexOf(d) >= 0
-    }));
+const mqttMessage = (topic, message) => {
+  switch (topic) {
+    case "door/outer/opened/username":
 
-    if(importantDevices.length > 0 && alertFlag == 0){
-      alertFlag = 1;
-      postToTelegram(`🆕 dash button pushed - rick roll commenced!`);
-      exec('ogg123 ~/hackscreen-react/public/audio/giveyouup.mp3', function puts(error, stdout, stderr) { });
-    }
+      io.emit("USER_ENTERED", message.toString());
+      const justEntered = message.toString();
+      const now = new Date();
+      const niceDate = now.toLocaleTimeString();
 
-    if(importantDevices.length == 0 ){
-      alertFlag = 0;
-      console.log("reset");
-    }else{
-      console.log("Device online!!");
-      console.log(importantDevices[0]);
-    }
+      if (justEntered !== latestUser) {
+        // New person entered
+        latestUser = justEntered;
+        lastMessage = `🔑 ${justEntered} (${niceDate})`;
+        postToTelegram(lastMessage, false, id => {
+          lastMessageId = id;
+        });
+      } else {
+        //Update last message
+        lastMessage = `${lastMessage} (${niceDate})`;
+        postToTelegram(lastMessage, lastMessageId, () => { });
+      }
+      break;
+    case "door/outer/opened/key":
+      io.emit("MANUAL_OVERRIDE", message.toString());
+      postToTelegram(`🚨 ${message.toString()}`);
+      notify = true;
+      break;
+    case "door/outer/state":
+      io.emit("DOOR_STATE", message.toString());
+      notify && postToTelegram(`🚪 ${message.toString()}`);
+      notify = false;
+      break;
+    case "door/outer/doorbell":
+      io.emit("DOORBELL", message.toString());
+      notify = true;
+      postToTelegram(`🔔 doorbell rung`);
+      break;
+    case "button/small/green":
+      io.emit("NEXT_SLIDE", "");
+      break;
+    case "button/big/red/state":
+      postToTelegram(`🈂️`);
+      var rnd = Math.floor(Math.random() * 100)
+      var audioCmd = "";
 
-    setTimeout(() => { getNetworkDevices() }, 5000);
-  })
-};
+      //decide what annoyance we want
+      switch (true) {
+        case rnd > 90:
+          audioCmd = "mpg123 ~/doorbell/audio/profanity.mp3";
+          break;
+        case rnd > 80:
+          audioCmd = "mpg123 ~/doorbell/audio/AirHorn.mp3";
+          break;
+        case rnd > 70:
+          audioCmd = "mpg123 ~/doorbell/audio/homer.mp3";
+          break;
+        case rnd > 60:
+          audioCmd = "mpg123 ~/doorbell/audio/homer-boogey.mp3";
+          break;
+        case rnc > 50:
+          audioCmd = "mpg123 ~/doorbell/audio/will.mp3";
+          break;
+        case rnd > 40:
+          audioCmd = "mpg123 ~/doorbell/audio/bart-aye.mp3";
+          break;
+        case rnd > 30:
+          audioCmd = "mpg123 ~/doorbell/audio/dixie.mp3";
+          break;
+        case rnd > 20:
+          audioCmd = "mpg123 ~/doorbell/audio/Antiques.mp3";
+          break;
+        case rnd > 10:
+          audioCmd = "mpg123 ~/doorbell/audio/THX.mp3";
+          break;
+        case rnd > 4:
+          audioCmd = "ogg123 ~/doorbell/audio/WIlhelp_Scream.ogg";
+          break;
+        case rnd > 2:
+          audioCmd = "mpg123 ~/doorbell/audio/yamaha.mp3";
+          break;
+        default:
+          audioCmd = "ogg123 ~/doorbell/audio/ipenema.flac";
+          break;
+      }
 
-getNetworkDevices();
+      //play the annoyance
+      exec(audioCmd, function puts(error, stdout, stderr) { });
+
+    default:
+      console.log("Unknown topic", topic);
+  }
+}
 
 const postToTelegram = (message, message_id, callback) => {
   const postData = querystring.stringify({
@@ -107,127 +167,28 @@ const postToTelegram = (message, message_id, callback) => {
   req.end();
 };
 
-let theClient = false;
-io.listen(config.socket.port);
+//When a new client connects to the server
 io.on("connection", socket => {
-  theClient = socket.id;
-
-  console.log("Client connected: ID", socket.id);
-  postToTelegram("🔌 client loaded the hackscreen");
-  // When we get a message, send to client
-  MQTTclient.on("message", function (topic, message) {
-    switch (topic) {
-      case "door/outer/opened/username":
-        socket.emit("USER_ENTERED", message.toString());
-        const justEntered = message.toString();
-        const now = new Date();
-        const niceDate = now.toLocaleTimeString();
-
-        if (justEntered !== latestUser) {
-          // New person entered
-          latestUser = justEntered;
-          lastMessage = `🔑 ${justEntered} (${niceDate})`;
-          postToTelegram(lastMessage, false, id => {
-            lastMessageId = id;
-          });
-        } else {
-          //Update last message
-          lastMessage = `${lastMessage} (${niceDate})`;
-          postToTelegram(lastMessage, lastMessageId, () => { });
-        }
-        break;
-      case "door/outer/opened/key":
-        socket.emit("MANUAL_OVERRIDE", message.toString());
-        postToTelegram(`🚨 ${message.toString()}`);
-        notify = true;
-        break;
-      case "door/outer/state":
-        socket.emit("DOOR_STATE", message.toString());
-        notify && postToTelegram(`🚪 ${message.toString()}`);
-        notify = false;
-        break;
-      case "door/outer/doorbell":
-        socket.emit("DOORBELL", message.toString());
-        notify = true;
-        postToTelegram(`🔔 doorbell rung`);
-        break;
-      case "button/small/green":
-        socket.emit("NEXT_SLIDE", "");
-        break;
-      case "button/big/red/state":
-        postToTelegram(`🈂️`);
-        var rnd = Math.floor(Math.random() * 100)
-        var audioCmd = "";
-
-        //decide what annoyance we want
-        switch (true) {
-          case rnd > 90:
-            audioCmd = "mpg123 ~/doorbell/audio/profanity.mp3";
-            break;
-          case rnd > 80:
-            audioCmd = "mpg123 ~/doorbell/audio/AirHorn.mp3";
-            break;
-          case rnd > 70:
-            audioCmd = "mpg123 ~/doorbell/audio/homer.mp3";
-            break;
-          case rnd > 60:
-            audioCmd = "mpg123 ~/doorbell/audio/homer-boogey.mp3";
-            break;
-          case rnc > 50:
-            audioCmd = "mpg123 ~/doorbell/audio/will.mp3";
-            break;
-          case rnd > 40:
-            audioCmd = "mpg123 ~/doorbell/audio/bart-aye.mp3";
-            break;
-          case rnd > 30:
-            audioCmd = "mpg123 ~/doorbell/audio/dixie.mp3";
-            break;
-          case rnd > 20:
-            audioCmd = "mpg123 ~/doorbell/audio/Antiques.mp3";
-            break;
-          case rnd > 10:
-            audioCmd = "mpg123 ~/doorbell/audio/THX.mp3";
-            break;
-          case rnd > 4:
-            audioCmd = "ogg123 ~/doorbell/audio/WIlhelp_Scream.ogg";
-            break;
-          case rnd > 2:
-            audioCmd = "mpg123 ~/doorbell/audio/yamaha.mp3";
-            break;
-          default:
-            audioCmd = "ogg123 ~/doorbell/audio/ipenema.flac";
-            break;
-        }
-
-        //play the annoyance
-        exec(audioCmd, function puts(error, stdout, stderr) { });
-
-      default:
-        console.log("Unknown topic", topic);
-    }
-  });
 
   socket.on("disconnect", function () {
-    postToTelegram(`😘 disconnect!`);
     socket.disconnect();
   });
 
-  //When the client tells us the slide changed
+  //When a client tells us they changed to a new slide
   socket.on("SLIDE_CHANGED", slideName => {
-    console.log("Slide changed to ", slideName);
 
-    if (slideName === "Sportsball") {
-      const cal = ical.fromURL(config.sportsball.calendar, {}, (err, data) => {
-        socket.emit("SPORTSBALL", data);
-      });
-    }
+    console.log("Slide Changed to " + slideName);
 
+    // Sportsball: Hand them sportsball data
+    if (slideName === "Sportsball") ical.fromURL(config.sportsball.calendar, {}, (err, data) => {
+      socket.emit("SPORTSBALL", data);
+    });
+
+
+    // Metrolink: get the live times
     if (slideName === "Metrolink") {
-      console.log("Getting Met times");
 
-      let URL = `https://api.tfgm.com/odata/Metrolinks?key=${
-        config.metrolink.api_key
-        }&$filter=TLAREF eq 'NIS'`;
+      let URL = `https://api.tfgm.com/odata/Metrolinks?key=${config.metrolink.api_key}&$filter=TLAREF eq 'NIS'`;
 
       try {
         https
@@ -300,4 +261,14 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "src", "index.html"));
 });
 
+
+MQTTclient.on("connect", mqttConnect);
+MQTTclient.on("message", mqttMessage);
+io.listen(config.socket.port);
+devices.startPoll(5000, () => {
+  postToTelegram(`🆕 dash button pushed - rick roll commenced!`);
+  exec('mpg123 ~/hackscreen-react/public/audio/giveyouup.mp3', function puts(error, stdout, stderr) { });
+});
+
 module.exports = app;
+
