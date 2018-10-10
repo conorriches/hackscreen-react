@@ -22,6 +22,7 @@ class Sportsball extends Component {
           return Date.parse(item.end) >= Date.now();
         })
         .sort((a, b) => {
+          console.log(a.end);
           return Date.parse(a.end) > Date.parse(b.end);
         })
         .slice(0, 3);
@@ -34,18 +35,17 @@ class Sportsball extends Component {
   render() {
     return (
       <div className="Sportsball">
-        <h3>City Stadium Upcoming Sportsball</h3>
+        <h3>Football at City Stadium</h3>
 
         {!this.state.loaded && "Unable to get the data 😞"}
         {this.state.loaded && this.state.data.length == 0 && "🎉 No upcoming sportsball events! 😊"}
-
+        Next Game:
         {this.state.data.map(d => {
           var options = {
             weekday: "short",
-            month: "long",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric"
+            month: "short",
+            year: "numeric",
+            day: "numeric"
           };
           return (
             <div className="Sportsball__fixture">

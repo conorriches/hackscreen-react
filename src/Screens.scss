@@ -130,24 +130,31 @@
   color: black;
 
   &__fixture {
+    margin:0px auto;
+    width:80%;
+    font-size:45px;
+    margin-bottom:10px;
     background:black;
     color:white;
+    border-radius:10px;
 
     &:first-of-type{ 
-      border:1px solid red;
-      margin-bottom:30px;
-      font-size:80px;
+      margin-bottom:60px;
+
+      .Sportsball__time {
+        font-size:60px;
+      }
+
     }
   }
 
   &__time{
-    background:red;
-    color:black;
     float:left;
-    width:450px;
+    width:100%;
+    background-color:red;
+    font-size:45px;
+    border-radius:10px 10px 0px 0px;
   }
 
-  &__name{
   
-  }
 }

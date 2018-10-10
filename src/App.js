@@ -243,6 +243,20 @@ class App extends Component {
           <Ticker
             items={[
               {
+                title: "Welcome",
+                value:
+                  "Welcome to Hackspace Manchester!"
+              },
+              {
+                title: "Door",
+                value: this.state.doorOpen ? "IRON DOORS OPEN - PLEASE CLOSE THE DOOR!" : "The front door is closed."
+              },
+              {
+                title: "Membership",
+                value:
+                  "You can use the kiosk for IOUs, fob updates and DNH labels."
+              },
+              {
                 title: "Last Entered",
                 value: this.state.lastEntered
                   .slice()
@@ -254,7 +268,7 @@ class App extends Component {
               {
                 title: "WiFi",
                 value:
-                  "To connect, select Hackspace  and enter password:T3h4x0rZ"
+                  "Our noticeboard has the WiFi details."
               }
             ]}
           />

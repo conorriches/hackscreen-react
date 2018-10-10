@@ -105,11 +105,12 @@ h4 {
   width: 90%;
   height: 60px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 2%;
+  right: 5%;
   background-color: black;
   display: flex;
-  border-radius: 5px 0px 0px 0px; }
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px white; }
   .footer .time {
     font-size: 35px;
     padding: 10px; }
@@ -194,7 +195,7 @@ small {
     font-size: 2rem;
     color: white; }
     .ticker-wrap li .title {
-      border-right: 5px solid red;
+      background: white;
+      color: black;
       padding: 0px 15px;
-      margin-right: 10px;
-      border-radius: 50px; }
+      margin-right: 10px; }
