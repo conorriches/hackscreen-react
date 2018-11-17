@@ -65,19 +65,22 @@ class App extends Component {
         return n.name === data;
       }).length;
       if (count > 0) {
-        this.setState({
-          lastEntered: this.state.lastEntered.filter(item => {
-            return item.name !== data;
-          })
-        });
+        if(data  && data != '-' && data != 'anon' )
+          this.setState({
+            lastEntered: this.state.lastEntered.filter(item => {
+              return item.name !== data;
+            })
+          });
         this.setState({ audio: { entry: 2 } });
       } else {
         this.setState({ audio: { entry: 1 } });
       }
 
-      this.setState({
-        lastEntered: this.state.lastEntered.slice(-5).concat(userData)
-      });
+      if(data  && data != '-' && data != 'anon' )
+        this.setState({
+          lastEntered: this.state.lastEntered.slice(-8).concat(userData)
+        });
+
     });
 
     socket.on("DOORBELL", data => {

@@ -35,6 +35,8 @@ const mqttMessage = (topic, message) => {
       const now = new Date();
       const niceDate = now.toLocaleTimeString();
 
+      if(!justEntered || justEntered == '-' || justEntered == 'anon' ) break;
+      
       if (justEntered !== latestUser) {
         // New person entered
         latestUser = justEntered;
