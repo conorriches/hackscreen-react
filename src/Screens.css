@@ -116,3 +116,17 @@
     background-color: red;
     font-size: 45px;
     border-radius: 10px 10px 0px 0px; }
+
+.Help {
+  font-family: "Archivo";
+  background: #1c92d2;
+  background: linear-gradient(to right, #FFF000, #FFFFFF);
+  color: black; }
+
+.Members {
+  font-family: "Archivo";
+  background: #1c92d2;
+  background: linear-gradient(to right, #f2fcfe, #1c92d2);
+  color: black;
+}
+

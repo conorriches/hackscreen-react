@@ -1,6 +1,8 @@
 export {default as Food} from './Food'
 export {default as Heck} from './Heck'
+export {default as Help} from './Help'
 export {default as Metrolink} from './Metrolink'
+export {default as Members} from './Members'
 export {default as MMMM} from './MMMM'
 export {default as Parrot} from './Parrot'
 export {default as Recent} from './Recent'
