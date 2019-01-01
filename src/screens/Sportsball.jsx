@@ -22,8 +22,7 @@ class Sportsball extends Component {
           return Date.parse(item.end) >= Date.now();
         })
         .sort((a, b) => {
-          console.log(a.end);
-          return Date.parse(a.end) > Date.parse(b.end);
+          return Date.parse(a.start) > Date.parse(b.start);
         })
         .slice(0, 3);
 

@@ -4,11 +4,15 @@ class MMMM extends Component {
   render() {
     return (
       <div>
-        <h2></h2>
-        <h2>Member's Meeting</h2>
-        <h3><b>3rd</b> DECEMBER @ 7.30pm</h3>
-        <h4>Everyone welcome</h4>
-        <small>no bikeshedding</small>
+        <h2>Monthly Members' Meeting</h2>
+        <h3>
+          <b>1st day</b>of each month @ 7pm
+        </h3>
+        <h3>or day after if 1st clashes with Open Evening.</h3>
+        <hr />
+        <h4>Everyone welcome, just show up.</h4>
+        <hr />
+        <h3>Add agenda points on the Wiki!</h3>
       </div>
     );
   }
