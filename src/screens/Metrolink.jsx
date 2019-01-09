@@ -33,8 +33,13 @@ class Metrolink extends Component {
                   <div className="Metrolink__platform">
                     <div className="Metrolink__direction">
                       {platform.direction == "Incoming"
-                        ? "Inbound <small>to City Centre</small>"
-                        : "Outbound <small>to Etihad & Ashton</small>"}
+                        ? "Inbound"
+                        : "Outbound"}
+                      <small>
+                        {platform.direction == "Incoming"
+                          ? "to City Centre"
+                          : "to Etihad & Ashton"}
+                      </small>
                     </div>
 
                     <ul className="Metrolink__trams">

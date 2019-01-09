@@ -8,10 +8,10 @@ class MMMM extends Component {
         <h3>
           <b>1st day</b>of each month @ 7pm
         </h3>
-        <h3>or day after if 1st clashes with Open Evening.</h3>
-        <hr />
+        <h3>or day after if it clashes with Open Evening.</h3>
+
         <h4>Everyone welcome, just show up.</h4>
-        <hr />
+
         <h3>Add agenda points on the Wiki!</h3>
       </div>
     );

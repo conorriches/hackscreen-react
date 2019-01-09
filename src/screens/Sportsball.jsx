@@ -23,10 +23,9 @@ class Sportsball extends Component {
         })
         .sort((a, b) => {
           return Date.parse(a.start) > Date.parse(b.start);
-        })
-        .slice(0, 3);
+        });
 
-      this.setState({ data: upcoming });
+      this.setState({ data: upcoming.slice(0, 3) });
       this.setState({ loaded: true });
     }
   }
@@ -35,9 +34,10 @@ class Sportsball extends Component {
     return (
       <div className="Sportsball">
         <h3>Football at City Stadium</h3>
-
         {!this.state.loaded && "Unable to get the data 😞"}
-        {this.state.loaded && this.state.data.length == 0 && "🎉 No upcoming sportsball events! 😊"}
+        {this.state.loaded &&
+          this.state.data.length == 0 &&
+          "🎉 No upcoming sportsball events! 😊"}
         Next Game:
         {this.state.data.map(d => {
           var options = {
